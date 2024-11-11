@@ -1,6 +1,7 @@
 Wellcome to InterConsulta Egypt!
 
 Linkedin profile: https://www.linkedin.com/company/interconsulta-egypt
+and
 Website link: http://www.interconsultaegypt.com/
 
 As time is essence in every aspect in our life, the company launched its activities since 1964 in 
@@ -28,8 +29,8 @@ companies by providing the following:
 4-Tax and accounting auditing  
 5-legal consultation, international arbitrational and litigation    
 6-project management, wealth and formation of wealth 
-7-Tourism projects
-8- Event planning
+7-Tourism projects 
+8-Event planning 
 
 
 Small and medium enterprises are also within scope of work for Interconsulta Egypt to 
