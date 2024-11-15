@@ -10,11 +10,9 @@
     <meta name="google-site-verification" content="DCSAqeAFuqQ8jfcaPBxXKnK9UuDH9tTskb5IIULpkMw"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-
-
-
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 fixed-top lead">
         <div class="container-fluid lead text-center">
           <div id="google_translate_element">
@@ -27,8 +25,17 @@
           <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
             <a href="https://www.linkedin.com/company/interconsulta-egypt/mycompany/" class="navbar-brand py-3 text-center">Wellcome to InterConsulta Egypt</a> 
 
-
-            <div class="collapse navbar-collapse" id="navmenu">
+            <button
+                class="navbar-toggler"
+                type="button" 
+                data-bs-toogle="collapse" 
+                data-target="#bar"
+                class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            >
+                <span class="navbar-toggler-icon"></span>
+              
+            </button>
+            <div class="collapse navbar-collapse" id="bar">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="#About us" class="nav-link">About us</a>
@@ -39,11 +46,18 @@
                     <li class="nav-item">
                         <a href="#Contact us" class="nav-link">Contact us</a>
                     </li>
+                    <li class="nav-item">
+                      <a href="#Our history" class="nav-link">Our history</a>
+                  </li>
                 </ul>
             </div>
        </div>
     </nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
+
+    
     <!--Pages-->
 <section >
 <div class=".bg-primary.bg-gradient text-dark p-3 text-justify lead">
@@ -77,11 +91,10 @@
                             The company carried on its works until end of December 1999, and had a new launching at the end 
                             of 2017. <br> <br> The Company specializes in managing wealth, and financial consultation service. Interconsulta Egypt prepared a study about the Egyptian market and its requirements, 
                             taking into consideration the country leading role in economy after years of economy degeneracy.<br><br>
-                         <h2>Our mission</h2>
-                            <br>At InterConsulta Egypt, <b>we put our customers first</b> in everything. With us your business and life is completely secured.
-    
                           </p>
 
+
+                          
                           <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
                             <div class="container-fluid">
                               <section id="Our services">
@@ -237,7 +250,7 @@
 
       <form method="post" action="mailto:$emailID?subject=$MySubject &message= $MyMessageText"></form>
       <form method="post" action="mailto:sameh.interconsulta@mail.ch" >
-        <input type="submit" value="Send us an Email" class="btn btn-dark btn-lg"/> 
+        <input type="submit" value="Send us an Email" class="btn btn-primary btn-lg"/> 
         </form>
 
         
@@ -256,20 +269,40 @@
 
 
 <section>
-  <div class=".bg-primary.bg-gradient text-dark p-4 text-justify">
+  <div class=".bg-primary.bg-gradient text-dark p-2 text-justify">
     <div class="fullscreen">
         <div class="d-lg-flex">
-  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-primary">
     <div class="container-fluid">
-      <a href="#" class="navbar-brand">Our History</a>
+      <section id="Our history"></section>
+      <a href="#" class="navbar-brand"></a>
   </nav>
  
 <div class="lead">
 <p><t><br>
+<h2>Our history</h2>
+<img src="img/logo.png" class="img-fluid" alt="" runat="server"><br>
 At a time when everything seems to be spinning faster, we are a constant partner. Nevertheless, since the founding of InterConsulta in 1964, we have never stopped. But, rather, we have reinvented ourselves time and time again and have moved forward with our clients.
 The best proof of this is our customers, some of whom have been loyal to us for decades and over several generations.<br><br>
 
 We started in Egypt since 1984 to 1999 and back again in 2017. 
+</p><br></t> </section>
+</div>
+
+<section>
+  <div class=".bg-primary.bg-gradient text-dark p-2 text-justify">
+    <div class="fullscreen">
+        <div class="d-lg-flex">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-primary">
+    <div class="container-fluid">
+      <a href="#" class="navbar-brand"></a>
+  </nav>
+ 
+<div class="lead">
+<p><t><br>
+  <h2>Our mission</h2>
+  <img src="img/logo.png" class="img-fluid" alt="" runat="server">
+  <br>At InterConsulta Egypt, <b>we put our customers first</b> in everything. With us your business and life is completely secured.<br><br> 
 </p><br></t> </section>
 </div>
 
@@ -325,7 +358,7 @@ We started in Egypt since 1984 to 1999 and back again in 2017.
 
   <section class="bg-dark text-light p-2 text-center">
     <div class="container-fluid">
-      <p> Copyright InterConsulta Egypt 2024. All rights reserved</p>
+      <p> Copyright InterConsulta Egypt 2024. All rights reserved <a href="https://www.linkedin.com/company/interconsulta-egypt/mycompany/" class="fa fa-linkedin"></a></p>
     </section>
 
 <script 
