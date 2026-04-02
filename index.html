@@ -103,11 +103,29 @@
     animation: slide-animation 16s infinite;
   }
 
-  .carousel-slide img {
+  /* .carousel-slide img {
     width: 400px;
     height: 280px;
     object-fit: cover;
-  }
+  } */
+
+  .carousel-slide img {
+    width: 100%;           /* Ocupă toată lățimea disponibilă a containerului */
+    max-width: 400px;      /* Nu depășește 400px pe ecrane mari */
+    height: 280px;         /* Înălțime fixă pentru aliniere */
+    object-fit: cover;     /* Previne deformarea imaginii */
+    display: block;
+    margin: 0 auto;        /* Centrează imaginea dacă e mai mică decât ecranul */
+}
+
+/* Ajustare automată pentru Mobil (ecrane sub 768px) */
+@media (max-width: 768px) {
+    .carousel-slide img {
+        max-width: 100%;    /* Pe mobil, permite imaginii să se întindă pe tot ecranul */
+        height: auto;       /* Opțional: lasă înălțimea să se calculeze singură */
+        aspect-ratio: 16 / 9; /* Sau forțează raportul dorit pe mobil */
+    }
+}
 
   /* Animația de glisare */
   @keyframes slide-animation {
@@ -154,6 +172,7 @@
 
     </div>
   </div>
+  
 
   <!-- Textul care se înfășoară -->
 
