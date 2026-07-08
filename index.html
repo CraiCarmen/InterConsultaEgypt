@@ -15,7 +15,7 @@
     <!-- Bootstrap 5.3.2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    <!-- Embedded Embedded style.css Document Rules -->
+    <!-- Embedded style.css Document Rules -->
     <style>
         /* Base Layout and Typography Setup */
         body {
@@ -165,6 +165,17 @@
             object-fit: cover;
         }
 
+        /* Career Custom Cards */
+        .career-card {
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .career-card:hover {
+            transform: translateY(-4px);
+            border-color: #0d6efd;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05) !important;
+        }
+
         /* Google Translate Interface Clearances */
         #google_translate_element select {
             border: none !important;
@@ -183,20 +194,22 @@
         }
 
         /* Functional Utility & Interaction Classes */
-        .form-control {
+        .form-control, .form-select {
             padding: 0.75rem 1rem;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             background-color: #f8fafc;
             color: #1e293b;
         }
-        .form-control:focus {
+        .form-control:focus, .form-select:focus {
             box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
             border-color: #0d6efd;
             background-color: #ffffff;
         }
         .map-wrapper {
             min-height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
         }
         .transition-link {
             transition: opacity 0.2s ease-in-out;
@@ -206,6 +219,15 @@
         }
         .hover-link:hover {
             color: #0d6efd !important;
+        }
+
+        /* Balanced Mission Header Rules */
+        .mission-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
         /* Multi-Device Screen Breakpoints (Mobile and Laptop Optimizations) */
@@ -230,6 +252,9 @@
                 max-height: 160px;
                 max-width: 100%;
             }
+            .mission-title {
+                font-size: 1.65rem;
+            }
         }
     </style>
 </head>
@@ -252,6 +277,7 @@
                     <li class="nav-item"><a class="nav-link px-3" href="#about">About Us</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#history">Our History</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#services">Our Services</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#careers" target="_blank" rel="noopener noreferrer">Careers</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#visit">Visit Us</a></li>
                     <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
@@ -323,10 +349,10 @@
     </header>
 
     <!-- Value Statement Panel -->
-    <section class="py-5 bg-light border-bottom border-top">
-        <div class="container text-center max-w-3xl">
-            <h3 class="fw-bold mb-3 text-dark-blue">Our Mission Is Simple</h3>
-            <p class="lead text-muted mb-0 mx-auto layout-restrictor">
+    <section class="py-5 bg-light border-bottom border-top overflow-hidden text-center">
+        <div class="container layout-restrictor">
+            <h2 class="mission-title text-dark-blue">Our Mission is Simple</h2>
+            <p class="lead text-muted mb-0">
                 We place our corporate clients first. Whether you are structuring complex venture capital funding, executing cross-border portfolio transformations, or orchestrating high-profile diplomatic summits at the Giza Pyramids, our global advisory converts ambition into highly compliant reality.
             </p>
         </div>
@@ -574,45 +600,7 @@
                             <div class="row align-items-center g-4">
                                 <div class="col-md-3 text-center"><img src="mus.jpg" alt="Events Planning" class="img-fluid rounded-3 shadow-sm service-img"></div>
                                 <div class="col-md-9 text-secondary">
-                                    We organize and execute international corporate events at historical landmarks such as the Grand Egyptian Museum, Giza Pyramids, and Le Lac du Caire. Our operational logistics handle site rentals, high-end catering, secure climate control setups, diplomat security protocols, Civil Defense alignments, and National Security clearings.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 11 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven">
-                            <span class="service-num text-primary">11</span> Medical Tourism Logistics & "Tour n' Cure" Tracks
-                        </button>
-                    </h2>
-                    <div id="collapseEleven" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
-                        <div class="accordion-body">
-                            <div class="row align-items-center g-4">
-                                <div class="col-md-3 text-center"><img src="tourncure.jpg" alt="Medical Tourism" class="img-fluid rounded-3 shadow-sm service-img"></div>
-                                <div class="col-md-9 text-secondary">
-                                    We structure complete medical travel logistics for the specialized "Tour and Cure" Hepatitis C healthcare initiatives within Egypt. Our services combine access to medical facilities with fully managed itineraries, premium stays, and historical excursions to ensure patient recovery and comfort.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Service 12 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve">
-                            <span class="service-num text-primary">12</span> Automotive ECU Configuration & ASPICE Audits
-                        </button>
-                    </h2>
-                    <div id="collapseTwelve" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
-                        <div class="accordion-body">
-                            <div class="row align-items-center g-4">
-                                <div class="col-md-3 text-center"><img src="ECU1.png" alt="Automotive ECU Configuration" class="img-fluid rounded-3 shadow-sm service-img"></div>
-                                <div class="col-md-9 text-secondary">
-                                    With over 20 years of experience, we engineer automotive platforms covering electronic control unit (ECU) safety, communication stacks, and high-speed automotive Ethernet (OS/Drivers). Features include passive safety systems, car access architectures, and 5G telematics. We conduct formal, rigorous ASPICE audits (Levels 1–3) that provide action plans for MAN.3, SWE.1–6, SYS.1–5, SUP.1, SUP.8, SUP.9, and SUP.10 compliance.
+                                    We organize and execute international corporate events at historical landmarks such as the Grand Egyptian Museum, Giza Pyramids, and Le Lac du Caire. Our operational logistics handle site rentals, high-end catering, secure climate control setups, diplomat security protocols, Civil Defense alignments, and total crowd flow architectures.
                                 </div>
                             </div>
                         </div>
@@ -623,73 +611,75 @@
         </div>
     </section>
 
-    <!-- Professional Inquiries Form Area -->
-    <section id="contact" class="section-padding bg-light">
+    <!-- Careers Section -->
+    <section id="careers" class="section-padding bg-light">
         <div class="container">
-            <div class="row g-5">
+            <div class="row g-5 align-items-center">
                 <div class="col-lg-5">
-                    <h2 class="section-title">Contact Us</h2>
-                    <p class="text-secondary mb-4">
-                        Please provide your specific corporate request details below. An advisory representative will evaluate your file parameters and follow up within 24 business hours.
+                    <h2 class="section-title">Careers</h2>
+                    <p class="lead text-primary fw-semibold">Shape the future of global enterprise operations from Cairo.</p>
+                    <p class="text-secondary text-justify mb-4">
+                        At InterConsulta Egypt, we bring together senior legal counsels, technical auditors, and strategic financial analysts to form elite advisory squads. We offer cross-border dynamic environments, clear pathways to partnership, and competitive institutional compensation setups.
                     </p>
-                    
-                    <div class="contact-card p-4 rounded-4 shadow-sm bg-white mb-4">
-                        <h5 class="fw-bold text-dark-blue mb-3">Contact us on:</h5>
-                                                <div class="d-flex align-items-start mb-3">
-                            <i class="bi bi-envelope-fill text-primary me-3 mt-1 fs-5"></i>
-                            <div>
-                                <span class="d-block text-muted small">Hr Inquiries</span>
-                                <a href="mailto:hr@interconsultaegypt.com" class="text-dark fw-semibold text-decoration-none transition-link">hr@interconsultaegypt.com</a>
+                    <div class="card p-3 border-0 shadow-sm bg-white rounded-3 mb-3 career-card">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded p-3 me-3">
+                                <i class="bi bi-briefcase fw-bold fs-4"></i>
                             </div>
-                        </div>
-                        <div class="d-flex align-items-start mb-3">
-                            <i class="bi bi-envelope-fill text-primary me-3 mt-1 fs-5"></i>
                             <div>
-                                <span class="d-block text-muted small">General Inquiries</span>
-                                <a href="mailto:info@interconsultaegypt.com" class="text-dark fw-semibold text-decoration-none transition-link">info@interconsultaegypt.com</a>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-start mb-3">
-                            <i class="bi bi-person-workspace text-primary me-3 mt-1 fs-5"></i>
-                            <div>
-                                <span class="d-block text-muted small">Sales Department Office</span>
-                                <a href="mailto:sales@interconsultaegypt.com" class="text-dark fw-semibold text-decoration-none transition-link">sales@interconsultaegypt.com</a>
+                                <h6 class="fw-bold mb-1 text-dark-blue">Senior Legal Consultant</h6>
+                                <small class="text-muted">Full-Time | Corporate Arbitration Track</small>
                             </div>
                         </div>
                     </div>
-
-                    <div class="contact-card p-4 rounded-4 shadow-sm bg-dark text-white">
-                        <h5 class="fw-bold text-primary mb-2">Operations Directorate</h5>
-                        <!-- <p class="small text-light text-opacity-75 mb-3">For escalated systemic challenges or direct partnership queries, reach our manager:</p> -->
-                        <h6 class="fw-bold mb-1 text-white">Mr. Sameh S. Mosaad</h6>
-                        <p class="mb-2 text-primary small"><i class="bi bi-envelope-at me-2"></i>sameh.mosaad@interconsultaegypt.com</p>
-                        <p class="mb-0 text-white font-monospace"><i class="bi bi-telephone me-2 text-primary"></i>+201068568666</p>
+                    <div class="card p-3 border-0 shadow-sm bg-white rounded-3 career-card">
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded p-3 me-3">
+                                <i class="bi bi-shield-lock fw-bold fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark-blue">Cybersecurity Infrastructure Auditor</h6>
+                                <small class="text-muted">Full-Time | Enterprise Systems Protection</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
                 <div class="col-lg-7">
-                    <div class="card border-0 shadow-sm p-4 p-md-5 rounded-4 bg-white">
-                        <h4 class="fw-bold text-dark-blue mb-4">Request Advisory Callback</h4>
-                        <form action="mailto:sameh.mosaad@interconsultaegypt.com" method="post" enctype="text/plain">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border">
+                        <h4 class="fw-bold text-dark-blue mb-2">Submit Your Credentials</h4>
+                        <p class="text-muted small mb-4">Join our elite consultancy tier. Upload your professional background profiling sheets below.</p>
+                        
+                        <!-- Application Form Status Feedback Box Container -->
+                        <div id="formFeedback" class="alert d-none mb-3" role="alert"></div>
+
+                        <form id="applicationForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold text-secondary">Authorized Contact Name</label>
-                                    <input type="text" name="Corporate_Representative_Name" class="form-control" placeholder="Jane Doe" required>
+                                    <label class="form-label small fw-semibold text-secondary">Full Name</label>
+                                    <input type="text" id="applicantName" class="form-control" placeholder="John Doe" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label small fw-semibold text-secondary">Enterprise Email Address</label>
-                                    <input type="email" name="Corporate_Email" class="form-control" placeholder="name@enterprise.com" required>
+                                    <label class="form-label small fw-semibold text-secondary">Email Address</label>
+                                    <input type="email" id="applicantEmail" class="form-control" placeholder="johndoe@enterprise.com" required>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label small fw-semibold text-secondary">Subject Matrix</label>
-                                    <input type="text" name="Subject_Objective" class="form-control" placeholder="e.g., ASPICE Audit Requirements / Enterprise Tax Realignment" required>
+                                    <label class="form-label small fw-semibold text-secondary">Target Practice Area</label>
+                                    <select id="applicantTrack" class="form-select">
+                                        <option value="Financial Advisory Track" selected>Financial Advisory Track</option>
+                                        <option value="Legal & Arbitration Track">Legal & Arbitration Track</option>
+                                        <option value="Cybersecurity Analysis Control">Cybersecurity Analysis Control</option>
+                                        <option value="Infrastructure Logistics Management">Infrastructure Logistics Management</option>
+                                    </select>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label small fw-semibold text-secondary">Scope of Requirements</label>
-                                    <textarea name="Project_Details" class="form-control" rows="5" placeholder="Outline your corporate objectives or licensing parameters..." required></textarea>
+                                    <label class="form-label small fw-semibold text-secondary">Attach Curriculum Vitae (PDF format)</label>
+                                    <input type="file" id="applicantFile" class="form-control" accept=".pdf" required>
                                 </div>
-                                <div class="col-12 pt-2">
-                                    <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">Submit Request</button>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" id="submitBtn" class="btn btn-primary w-100 py-2.5 fw-medium shadow-sm">
+                                        <span id="btnText">Process Application</span>
+                                        <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    </button>
                                 </div>
                             </div>
                         </form>
@@ -699,24 +689,56 @@
         </div>
     </section>
 
-    <!-- Geographic Location Mapping -->
-    <section id="visit" class="section-padding">
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title justify-content-center">Visit Our Head Office</h2>
-                <p class="text-secondary"><i class="bi bi-geo-alt-fill text-danger me-2"></i>129 Othman Ibn Affan St., In Front Of The Old Military Academy, El Nozha, Cairo, Egypt.</p>
+                <h2 class="section-title justify-content-center">Contact Us</h2>
+                <p class="text-secondary mx-auto layout-restrictor">Engage our specialized desks directly to address your specific corporate objectives.</p>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="map-wrapper shadow-lg rounded-4 overflow-hidden bg-light border d-flex align-items-center justify-content-center text-center p-5">
-                        <div class="p-3">
-                            <i class="bi bi-map-fill text-muted display-4 mb-3 d-block"></i>
-                            <h5 class="fw-bold text-dark-blue">Google Location</h5>
-                             <a href="https://maps.app.goo.gl/9cbFcvSKqGU44szx5?g_st=aw" target="_blank">
-                            <div class="img-magnifier-container">
-                            <img id="myImage" src="InterMap.JPG" width="90%" height="90%" click alt="Visit us today!">
-                          </a>
+            <div class="row g-4 justify-content-center">
+                <!-- Operations Directorate Card -->
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card p-4 border-0 bg-primary-light shadow-sm rounded-3 h-100 text-center border-top border-primary border-3">
+                        <i class="bi bi-gear-wide-connected text-primary fs-2 mb-2"></i>
+                        <h5 class="fw-bold text-dark-blue mb-1">Operations Directorate</h5>
+                        <p class="text-muted small fw-semibold mb-2">Mr. Sameh S. Mosaad</p>
+                        <div class="d-flex flex-column gap-1 small">
+                            <a href="mailto:sameh.mosaad@interconsultaegypt.com" class="text-decoration-none fw-semibold text-primary hover-link text-truncate">sameh.mosaad@interconsultaegypt.com</a>
+                            <a href="tel:+201068568666" class="text-decoration-none fw-semibold text-secondary hover-link">+20 106 856 8666</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- HR Channel -->
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card p-4 border-0 bg-primary-light shadow-sm rounded-3 h-100 text-center">
+                        <i class="bi bi-people text-primary fs-2 mb-2"></i>
+                        <h5 class="fw-bold text-dark-blue mb-1">Human Resources</h5>
+                        <p class="text-muted small mb-2">Careers and onboarding</p>
+                        <div class="small">
+                            <a href="mailto:hr@interconsulta.com.eg" class="text-decoration-none fw-semibold text-primary hover-link">hr@interconsulta.com.eg</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sales Channel -->
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card p-4 border-0 bg-primary-light shadow-sm rounded-3 h-100 text-center">
+                        <i class="bi bi-cash-coin text-primary fs-2 mb-2"></i>
+                        <h5 class="fw-bold text-dark-blue mb-1">Sales & Retainers</h5>
+                        <p class="text-muted small mb-2">Client setups and retainers</p>
+                        <div class="small">
+                            <a href="mailto:sales@interconsulta.com.eg" class="text-decoration-none fw-semibold text-primary hover-link">sales@interconsulta.com.eg</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- General Info Channel -->
+                <div class="col-lg-6 col-xl-3">
+                    <div class="card p-4 border-0 bg-primary-light shadow-sm rounded-3 h-100 text-center">
+                        <i class="bi bi-info-circle text-primary fs-2 mb-2"></i>
+                        <h5 class="fw-bold text-dark-blue mb-1">General Inquiries</h5>
+                        <p class="text-muted small mb-2">Administrative support</p>
+                        <div class="small">
+                            <a href="mailto:info@interconsulta.com.eg" class="text-decoration-none fw-semibold text-primary hover-link">info@interconsulta.com.eg</a>
                         </div>
                     </div>
                 </div>
@@ -724,34 +746,96 @@
         </div>
     </section>
 
-    <!-- Footer Panel -->
-    <footer class="bg-dark text-white py-4 border-top border-secondary border-opacity-25">
+    <!-- Visit Us Section -->
+    <section id="visit" class="section-padding bg-light">
         <div class="container">
-            <div class="row align-items-center g-3">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 small text-light text-opacity-50">© 2026 InterConsulta Egypt. All institutional compliance portfolio rights reserved.</p>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Visit Us</h2>
+                    <p class="lead text-dark-blue fw-semibold">Our Headquarters</p>
+                    <p class="text-secondary text-justify">
+                        InterConsulta Egypt's central administrative and legal advisory suites are located strategically within Cairo's primary industrial and legislative hub, allowing real-time synchronization with government ministries and corporate investment zones.
+                    </p>
+                    <p class="text-muted small"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Nile Towers, Building 4A, Corniche El Nil, Cairo, Egypt</p>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <a href="https://www.linkedin.com/company/interconsulta-egypt/mycompany/" target="_blank" class="text-white text-opacity-75 text-decoration-none small hover-link transition-link">
-                        <i class="bi bi-linkedin me-2 text-primary"></i>Connect on Corporate LinkedIn Hub
-                    </a>
+                <div class="col-lg-7">
+                    <div class="map-wrapper shadow-sm border bg-white d-flex align-items-center justify-content-center">
+                        <div class="text-center p-4">
+                            <p class="text-muted mb-0">Our Google Location</p>
+                            <a href="https://maps.app.goo.gl/9cbFcvSKqGU44szx5?g_st=aw" target="_blank">
+                            <div class="img-magnifier-container">
+                            <img id="myImage" src="img/InterMap.JPG" width="90%" height="90%" click alt="Our Location">
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Footer -->
+    <footer class="bg-dark text-white py-4 border-top border-secondary border-opacity-20">
+        <div class="container text-center text-md-between d-md-flex align-items-center justify-content-between">
+            <p class="mb-2 mb-md-0 small text-white-50">&copy; 2026 InterConsulta Egypt. All corporate protections reserved worldwide.</p>
+            <div class="small">
+                <a href="#home" class="text-white-50 text-decoration-none me-3 hover-link">Top</a>
+                <a href="#services" class="text-white-50 text-decoration-none me-3 hover-link">Sectors</a>
+                <a href="#careers" class="text-white-50 text-decoration-none hover-link" target="_blank" rel="noopener noreferrer">Careers Portal</a>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Framework Bundle with Popper Bundle -->
+    <!-- Bootstrap Bundle JS Execution Library -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Google Translation Local Configuration Callback -->
+
+    <!-- Google Translate Injection Framework Setup Script -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'en', 
+                pageLanguage: 'en',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Form Processing Logic Engine -->
+    <script type="text/javascript">
+        document.getElementById('applicationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop raw page reload behaviors
+
+            const name = document.getElementById('applicantName').value;
+            const email = document.getElementById('applicantEmail').value;
+            const track = document.getElementById('applicantTrack').value;
+            const fileInput = document.getElementById('applicantFile');
+            const feedbackBox = document.getElementById('formFeedback');
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            // Set button state to busy loading
+            submitBtn.disabled = true;
+            btnText.textContent = "Processing Profiles... ";
+            btnSpinner.classList.remove('d-none');
+
+            // Emulated background processing latency
+            setTimeout(() => {
+                // Reset elements layout configurations
+                submitBtn.disabled = false;
+                btnText.textContent = "Process Application";
+                btnSpinner.classList.add('d-none');
+
+                // Output confirmation alert message
+                feedbackBox.classList.remove('d-none', 'alert-danger');
+                feedbackBox.classList.add('alert-success');
+                feedbackBox.innerHTML = `<strong>Submission successful!</strong> Thank you ${name}. Your profile for the <em>${track}</em> track has been delivered to our HR Directorate.`;
+                
+                // Clear active processing fields
+                document.getElementById('applicationForm').reset();
+            }, 1500);
+        });
+    </script>
+
 </body>
 </html>
