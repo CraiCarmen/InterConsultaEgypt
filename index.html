@@ -1,926 +1,1421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InterConsulta Egypt | Global Business Advisory & Consulting</title>
-    
-    <meta name="google-site-verification" content="DCSAqeAFuqQ8jfcaPBxXKnK9UuDH9tTskb5IIULpkMw"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InterConsulta Egypt | Global Business Advisory & Consulting</title>
+<meta name="description" content="InterConsulta Egypt — global business advisory across finance, legal, cybersecurity, incorporation and infrastructure, operating from Zürich since 1964 and Cairo since 1983.">
+<meta name="google-site-verification" content="DCSAqeAFuqQ8jfcaPBxXKnK9UuDH9tTskb5IIULpkMw"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            /* Palette Design Tokens */
-            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #0d6efd 50%, #0284c7 100%);
-            --card-gradient: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-            --dark-blue: #0f172a;
-            --accent-blue: #0d6efd;
-            --slate-grey: #64748b;
-            --light-grey: #f1f5f9;
-            --border-color: #e2e8f0;
-            --radius-lg: 16px;
-            --radius-md: 10px;
-            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #334155;
-            background-color: #f8fafc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --ink:        #0B1420;
+  --ink-2:      #101D30;
+  --ink-3:      #1A2C46;
+  --paper:      #F5F3EB;
+  --paper-2:    #ECE6D6;
+  --brass:      #B4915B;
+  --brass-light:#DCC494;
+  --brass-deep: #8A6A3E;
+  --steel:      #3B5D82;
+  --text:       #1C2430;
+  --muted:      #5C6572;
+  --muted-on-ink: rgba(245,243,235,.62);
+  --line:       rgba(11,20,32,.14);
+  --line-on-ink:rgba(245,243,235,.16);
+  --radius-sm:  3px;
+  --radius:     6px;
+  --radius-lg:  14px;
+  --serif:  'Fraunces', Georgia, serif;
+  --sans:   'Inter', -apple-system, sans-serif;
+  --mono:   'IBM Plex Mono', 'SFMono-Regular', monospace;
+  --arabic: 'Cairo', 'Inter', sans-serif;
+  --ease: cubic-bezier(.22,.68,0,1);
 
-        /* Executive Header Structure */
-        .navbar-custom {
-            background-color: var(--dark-blue);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1.2rem 0;
-        }
+  /* Blue gradients used throughout */
+  --gradient-blue: linear-gradient(135deg, #0f172a 0%, #0d6efd 55%, #0284c7 100%);
+  --gradient-blue-soft: linear-gradient(135deg, rgba(15,23,42,.9) 0%, rgba(13,110,253,.85) 55%, rgba(2,132,199,.85) 100%);
+  --gradient-blue-text: linear-gradient(120deg, #7cc4ff 0%, #4f9dff 45%, #0d6efd 100%);
+}
 
-        .navbar-brand .tracking-wide {
-            letter-spacing: 0.5px;
-            font-size: 1.35rem;
-        }
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  margin:0;
+  font-family:var(--sans);
+  color:var(--text);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+button{ font-family:inherit; cursor:pointer; }
+::selection{ background:var(--brass-light); color:var(--ink); }
+:focus-visible{ outline:2px solid var(--brass); outline-offset:3px; }
 
-        /* Interactive Tabs Navigation */
-        .nav-link-btn {
-            color: rgba(255, 255, 255, 0.75) !important;
-            font-weight: 500;
-            border: none;
-            background: transparent;
-            padding: 0.6rem 1.1rem;
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-        }
+/* Arabic / RTL mode */
+body[dir="rtl"]{ font-family:var(--arabic); }
+body[dir="rtl"] .eyebrow, body[dir="rtl"] .hero-credentials,
+body[dir="rtl"] .stat-num, body[dir="rtl"] .svc-roman, body[dir="rtl"] .timeline-date,
+body[dir="rtl"] .svc-num-badge, body[dir="rtl"] .hq-addr, body[dir="rtl"] .brand-word,
+body[dir="rtl"] .footer-brand{ font-family:var(--mono); }
+body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3, body[dir="rtl"] h4, body[dir="rtl"] h5,
+body[dir="rtl"] .pull-quote{ font-family:var(--arabic); font-style:normal; }
+body[dir="rtl"] .eyebrow::before{ order:2; }
+body[dir="rtl"] .timeline{ padding-left:0; padding-right:2.6rem; }
+body[dir="rtl"] .timeline::before{ left:auto; right:6px; }
+body[dir="rtl"] .timeline-item::before{ left:auto; right:-2.6rem; }
+body[dir="rtl"] .hq-addr i{ order:2; }
 
-        .nav-link-btn:hover, .nav-link-btn.active {
-            color: #ffffff !important;
-            background-color: rgba(13, 110, 253, 0.2);
-        }
+.lang-toggle{
+  background:none; border:1px solid var(--line-on-ink); color:var(--muted-on-ink);
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.04em;
+  padding:.4rem .7rem; border-radius:2px; transition:all .25s var(--ease);
+}
+.lang-toggle:hover{ border-color:var(--brass); color:#fff; }
 
-        /* Custom Dropdown Clearances for Translation */
-        #google_translate_element select {
-            border: 1px solid var(--border-color) !important;
-            background: #ffffff !important;
-            font-size: 0.85rem !important;
-            font-weight: 600 !important;
-            color: var(--dark-blue) !important;
-            border-radius: 6px;
-            padding: 4px 8px;
-            outline: none !important;
-        }
-        .goog-te-gadget-simple, .goog-logo-link, .goog-te-banner-frame, .skiptranslate img {
-            display: none !important;
-        }
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.72rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--brass);
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:500;
+}
+.eyebrow::before{ content:''; width:22px; height:1px; background:var(--brass); display:inline-block; }
 
-        /* Dashboard Container Layouts */
-        .dashboard-container {
-            flex: 1;
-            padding: 3rem 0;
-        }
+.container{ max-width:1160px; margin:0 auto; padding:0 1.5rem; }
 
-        /* Tab Appear/Disappear Animation Engine */
-        .app-view {
-            display: none;
-            animation: viewFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        }
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header{
+  position:sticky; top:0; z-index:1000;
+  background:var(--ink);
+  border-bottom:1px solid var(--line-on-ink);
+}
+.site-header::before{
+  content:'';
+  display:block; height:3px;
+  background:linear-gradient(90deg, #0d6efd, #7cc4ff 45%, #0284c7 90%);
+}
+.site-header.is-scrolled{ box-shadow:0 12px 30px rgba(0,0,0,.28); }
 
-        .app-view.active-view {
-            display: block;
-        }
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.5rem;
+}
+.brand{
+  display:flex; align-items:center; gap:.7rem;
+  background:none; border:0; padding:0; color:#fff;
+}
+.brand-mark{
+  width:38px; height:38px; border:1px solid var(--brass);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-weight:600; font-size:1.05rem;
+  color:var(--brass-light); flex-shrink:0;
+}
+.brand-word{
+  font-family:var(--serif); font-weight:600; font-size:1.18rem; letter-spacing:.01em;
+}
+.brand-word .accent{ color:var(--brass-light); font-style:italic; font-weight:500; }
 
-        @keyframes viewFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.nav-links{ display:flex; align-items:center; gap:.2rem; }
+.nav-link-btn{
+  position:relative;
+  background:none; border:0; color:var(--muted-on-ink);
+  font-size:.88rem; font-weight:500; letter-spacing:.01em;
+  padding:.55rem .8rem; transition:color .25s var(--ease);
+}
+.nav-link-btn::after{
+  content:''; position:absolute; left:.8rem; right:.8rem; bottom:.15rem; height:1px;
+  background:var(--brass-light); transform:scaleX(0); transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.nav-link-btn:hover{ color:#fff; }
+.nav-link-btn:hover::after,
+.nav-link-btn.active::after{ transform:scaleX(1); }
+.nav-link-btn.active{ color:#fff; }
 
-        /* Corporate Workspace Container Panels */
-        .premium-card {
-            background: var(--card-gradient);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-            margin-bottom: 2rem;
-        }
+.nav-right{ display:flex; align-items:center; gap:1rem; }
 
-        /* Hero Element Framings */
-        .hero-banner {
-            background: var(--primary-gradient);
-            color: #ffffff;
-            border-radius: var(--radius-lg);
-            padding: 4rem 3rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
-        }
+#google_translate_element{ font-size:0; }
+#google_translate_element select{
+  border:1px solid var(--line-on-ink) !important;
+  background:var(--ink-2) !important;
+  color:var(--muted-on-ink) !important;
+  font-family:var(--mono) !important;
+  font-size:.72rem !important;
+  border-radius:2px; padding:.35rem .5rem;
+}
+.goog-te-gadget-simple, .goog-logo-link, .goog-te-banner-frame, .skiptranslate img{ display:none !important; }
+.goog-te-gadget{ font-family:var(--mono) !important; color:transparent !important; font-size:0 !important; }
+.goog-te-gadget span{ display:none; }
 
-        .logo-hero {
-            max-height: 80px;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-        }
+.nav-toggle{
+  display:none; background:none; border:1px solid var(--line-on-ink); color:#fff;
+  width:40px; height:36px; border-radius:2px; font-size:1.1rem;
+}
 
-        /* Media Component Encasements */
-        .carousel-wrapper {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.15);
-        }
+@media (max-width: 960px){
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--ink); border-top:1px solid var(--line-on-ink);
+    max-height:0; overflow:hidden; transition:max-height .35s var(--ease);
+  }
+  .nav-links.open{ max-height:400px; }
+  .nav-link-btn{ text-align:left; padding:.9rem 1.5rem; border-bottom:1px solid var(--line-on-ink); }
+  .nav-link-btn::after{ display:none; }
+  .nav-right{ flex-wrap:wrap; padding:1rem 1.5rem; }
+  .nav-toggle{ display:flex; align-items:center; justify-content:center; }
+}
 
-        .carousel-img-container {
-            width: 100%;
-            height: 380px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
+/* ============================================================
+   VIEW SWITCHER
+   ============================================================ */
+main{ min-height:60vh; }
+.app-view{ display:none; }
+.app-view.active-view{ display:block; }
 
-        .carousel-img-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: inherit;
-            filter: blur(10px) brightness(0.5);
-        }
+.reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+  html{ scroll-behavior:auto; }
+}
 
-        .carousel-img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            position: relative;
-            z-index: 2;
-            margin: auto;
-            display: block;
-        }
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  background:
+    radial-gradient(ellipse 900px 500px at 85% -10%, rgba(59,93,130,.35), transparent 60%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+  color:#fff;
+  padding:4.5rem 0 3.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid; grid-template-columns:1.05fr .95fr; gap:3.5rem; align-items:center;
+}
+.hero-kicker{ margin-bottom:1.4rem; }
+.hero h1{
+  font-family:var(--serif); font-weight:600; font-style:normal;
+  font-size:clamp(2.3rem, 4.4vw, 3.6rem); line-height:1.06; letter-spacing:-.01em;
+  margin:0 0 1.3rem;
+}
+.hero h1 em{ font-style:italic; font-weight:500; color:var(--brass-light); }
+.hero-lead{
+  font-size:1.08rem; line-height:1.65; color:var(--muted-on-ink);
+  max-width:34rem; margin:0 0 2.1rem;
+}
+.hero-credentials{
+  display:flex; gap:1.6rem; flex-wrap:wrap; margin-bottom:2.2rem;
+  font-family:var(--mono); font-size:.78rem; color:var(--brass-light);
+}
+.hero-credentials span{ display:flex; align-items:center; gap:.5rem; }
+.hero-credentials i{ color:var(--brass); }
 
-        /* Core Typography presentation Accents */
-        .view-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--dark-blue);
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-        }
+.btn-row{ display:flex; gap:.9rem; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.85rem 1.5rem; border-radius:2px; font-weight:600; font-size:.9rem;
+  letter-spacing:.01em; border:1px solid transparent; transition:all .3s var(--ease);
+  text-decoration:none;
+}
+.btn-brass{ background:var(--gradient-blue); color:#fff; }
+.btn-brass:hover{ filter:brightness(1.12); transform:translateY(-2px); box-shadow:0 12px 26px rgba(13,110,253,.35); }
+.btn-outline-light{ border-color:rgba(255,255,255,.35); color:#fff; background:transparent; }
+.btn-outline-light:hover{ border-color:#fff; background:rgba(255,255,255,.06); }
+.btn-outline-dark{ border-color:rgba(11,20,32,.3); color:var(--ink); background:transparent; }
+.btn-outline-dark:hover{ border-color:var(--ink); background:rgba(11,20,32,.05); }
 
-        .view-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 5px;
-            background: var(--accent-blue);
-            margin-top: 10px;
-            border-radius: 4px;
-        }
+/* Dossier frame carousel */
+.dossier{
+  position:relative; border:1px solid var(--line-on-ink);
+  background:var(--ink-3); padding:14px; border-radius:2px;
+}
+.dossier::before,.dossier::after{
+  content:''; position:absolute; width:22px; height:22px; border:2px solid #4f9dff;
+  z-index:2;
+}
+.dossier::before{ top:-1px; left:-1px; border-right:0; border-bottom:0; }
+.dossier::after{ bottom:-1px; right:-1px; border-left:0; border-top:0; }
+.dossier-frame{
+  position:relative; height:340px; overflow:hidden; border-radius:1px; background:#0d1522;
+}
+.dossier-slide{
+  position:absolute; inset:0; opacity:0; transition:opacity .8s var(--ease);
+  display:flex; align-items:center; justify-content:center;
+}
+.dossier-slide.active{ opacity:1; }
+.dossier-slide img{ width:100%; height:100%; object-fit:cover; }
+.dossier-fallback{
+  display:none; width:100%; height:100%; align-items:center; justify-content:center;
+  flex-direction:column; gap:.6rem; color:var(--brass-light);
+  background:
+    repeating-linear-gradient(135deg, rgba(180,145,91,.06) 0 2px, transparent 2px 18px),
+    linear-gradient(160deg, #16233a, #0d1522);
+}
+.dossier-fallback i{ font-size:1.8rem; }
+.dossier-fallback span{ font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-on-ink); text-align:center; padding:0 1.5rem; }
+.dossier-caption{
+  position:absolute; left:0; right:0; bottom:0; padding:.9rem 1.1rem;
+  background:linear-gradient(0deg, rgba(0,0,0,.65), transparent);
+  font-family:var(--mono); font-size:.72rem; color:#fff; letter-spacing:.03em;
+}
+.dossier-dots{ display:flex; gap:.5rem; justify-content:center; padding-top:.9rem; }
+.dossier-dots button{
+  width:22px; height:3px; background:rgba(255,255,255,.22); border:0; padding:0; transition:background .3s;
+}
+.dossier-dots button.active{ background:var(--brass-light); }
 
-        /* Premium Dynamic Carousel Styles for Operational Sectors */
-        .services-carousel .carousel-item {
-            padding: 10px;
-        }
-        
-        .service-slide-card {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            padding: 3rem;
-            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
-            transition: var(--transition);
-        }
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+.stats-strip{
+  background:var(--gradient-blue); border-top:1px solid var(--line-on-ink); border-bottom:1px solid var(--line-on-ink);
+  padding:2.2rem 0;
+}
+.stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+.stat{ text-align:center; padding:0 .5rem; }
+.stat-num{
+  font-family:var(--mono); font-weight:600; font-size:clamp(1.7rem,3vw,2.3rem);
+  color:var(--brass-light); font-variant-numeric:tabular-nums;
+}
+.stat-label{
+  font-size:.76rem; color:var(--muted-on-ink); letter-spacing:.03em; margin-top:.35rem;
+}
+@media (max-width: 760px){ .stats-grid{ grid-template-columns:repeat(2,1fr); row-gap:1.8rem; } }
 
-        .service-slide-card:hover {
-            border-color: var(--accent-blue);
-            box-shadow: 0 15px 35px rgba(13, 110, 253, 0.08);
-        }
+/* ============================================================
+   SECTIONS (light)
+   ============================================================ */
+.section{ padding:4.5rem 0; }
+.section-tight{ padding:3rem 0; }
+.section-title{
+  font-family:var(--serif); font-weight:600; font-size:clamp(1.8rem,3.2vw,2.4rem);
+  color:var(--ink); margin:.6rem 0 0; position:relative; display:inline-block; padding-bottom:.9rem;
+}
+.section-title::after{
+  content:''; position:absolute; left:0; bottom:0; width:64px; height:4px; border-radius:3px;
+  background:var(--gradient-blue);
+}
+body[dir="rtl"] .section-title::after{ left:auto; right:0; }
+.section-head{ margin-bottom:2.6rem; max-width:38rem; }
+.section-sub{ color:var(--muted); font-size:1.02rem; margin-top:.9rem; line-height:1.6; }
 
-        .service-header-row {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--light-grey);
-            padding-bottom: 1rem;
-        }
+.pull-quote{
+  font-family:var(--serif); font-style:italic; font-weight:500;
+  font-size:clamp(1.3rem,2.4vw,1.8rem); line-height:1.5; color:var(--ink);
+  position:relative; padding-left:2.2rem; max-width:44rem;
+}
+.pull-quote::before{
+  content:'"'; position:absolute; left:-.3rem; top:-1.1rem; font-size:4rem; color:var(--brass);
+  font-family:var(--serif); font-style:normal;
+}
+.pull-quote::after{
+  content:'"'; font-family:var(--serif); font-style:normal; color:var(--brass);
+}
 
-        .service-slide-num {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* Full-width justified mission statement */
+.pull-quote-full{
+  max-width:none; width:100%; text-align:justify;
+  text-align-last:left; padding:2.4rem 2.6rem; border-radius:var(--radius);
+  background:var(--gradient-blue); color:#fff;
+  box-shadow:0 20px 45px rgba(13,110,253,.18);
+}
+.pull-quote-full::before{ color:var(--brass-light); }
+.pull-quote-full::after{ color:var(--brass-light); }
+body[dir="rtl"] .pull-quote-full{ text-align-last:right; }
 
-        .service-slide-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--dark-blue);
-            margin: 0;
-        }
+/* Pop badges: Easy / Simple / Cheap / Fast */
+.pop-row{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.8rem; }
+.pop-badge{
+  font-family:var(--mono); font-weight:600; font-size:.85rem; letter-spacing:.03em;
+  color:#fff; padding:.7rem 1.3rem; border-radius:999px;
+  background:var(--gradient-blue);
+  box-shadow:0 10px 22px rgba(13,110,253,.28);
+  transform:scale(0); opacity:0;
+}
+.pop-badge.pop-in{ animation:popIn .6s var(--ease) forwards; }
+@keyframes popIn{
+  0%{ transform:scale(0); opacity:0; }
+  60%{ transform:scale(1.15); opacity:1; }
+  80%{ transform:scale(.94); }
+  100%{ transform:scale(1); opacity:1; }
+}
+@media (prefers-reduced-motion: reduce){
+  .pop-badge{ transform:none; opacity:1; }
+  .pop-badge.pop-in{ animation:none; }
+}
 
-        .service-img-wrapper {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            height: 220px;
-        }
+/* chips row */
+.chip-row{ display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2rem; }
+.chip{
+  font-family:var(--mono); font-size:.76rem; letter-spacing:.02em;
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  padding:.55rem 1rem; border-radius:2px; transition:all .25s var(--ease);
+}
+.chip:hover{ border-color:var(--brass); color:var(--brass-deep); transform:translateY(-2px); }
 
-        .service-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
+/* card */
+.card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:2.2rem;
+}
 
-        .service-slide-card:hover .service-img-wrapper img {
-            transform: scale(1.04);
-        }
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-grid{ display:grid; grid-template-columns:1.4fr 1fr; gap:1.6rem; }
+.about-callout{
+  background:var(--ink); color:#fff; border-radius:var(--radius);
+  padding:2.2rem; border:1px solid var(--ink-3);
+}
+.about-callout h4{ font-family:var(--serif); font-weight:600; color:var(--brass-light); margin:0 0 .9rem; font-size:1.15rem; }
+.about-callout p{ color:var(--muted-on-ink); line-height:1.65; margin:0; font-size:.95rem; }
+.about-grid p{ color:var(--muted); line-height:1.75; }
+.about-grid h3{ font-family:var(--serif); font-size:1.4rem; color:var(--ink); margin:0 0 1rem; }
 
-        /* Carousel Navigation Buttons Adjustments */
-        .services-carousel .carousel-control-prev,
-        .services-carousel .carousel-control-next {
-            width: 50px;
-            height: 50px;
-            background: var(--dark-blue);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-            opacity: 0.9;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+@media (max-width: 900px){ .about-grid{ grid-template-columns:1fr; } }
 
-        .services-carousel .carousel-control-prev:hover,
-        .services-carousel .carousel-control-next:hover {
-            background: var(--accent-blue);
-            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
-        }
+/* Timeline */
+.timeline{ position:relative; margin-top:1rem; padding-left:2.6rem; }
+.timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:3px; border-radius:2px; background:var(--gradient-blue); }
+.timeline-item{ position:relative; padding-bottom:2.4rem; }
+.timeline-item:last-child{ padding-bottom:0; }
+.timeline-item::before{
+  content:''; position:absolute; left:-2.65rem; top:.3rem; width:13px; height:13px;
+  border-radius:50%; background:var(--gradient-blue); border:2px solid var(--paper);
+  box-shadow:0 0 0 2px #0d6efd;
+}
+.timeline-date{
+  font-family:var(--mono); font-size:.82rem; color:var(--brass-deep); font-weight:600;
+  letter-spacing:.03em; margin-bottom:.4rem; display:block;
+}
+.timeline-item h5{ font-family:var(--serif); font-size:1.15rem; margin:0 0 .5rem; color:var(--ink); }
+.timeline-item p{ color:var(--muted); line-height:1.65; margin:0; max-width:38rem; }
 
-        .services-carousel .carousel-control-prev { left: -25px; }
-        .services-carousel .carousel-control-next { right: -25px; }
+/* ============================================================
+   SERVICES INDEX
+   ============================================================ */
+.services-shell{
+  display:grid; grid-template-columns:340px 1fr; gap:0;
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#fff;
+}
+.services-index{ background:var(--paper-2); border-right:1px solid var(--line); max-height:560px; overflow-y:auto; }
+.svc-index-btn{
+  position:relative; display:flex; align-items:baseline; gap:.9rem; width:100%; text-align:left;
+  background:none; border:0; border-bottom:1px solid var(--line);
+  padding:1rem 1.3rem; transition:background .25s var(--ease);
+}
+.svc-index-btn:hover{ background:rgba(13,110,253,.06); }
+.svc-index-btn.active{ background:#fff; padding-left:calc(1.3rem - 3px); }
+.svc-index-btn.active::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gradient-blue);
+}
+body[dir="rtl"] .svc-index-btn.active::before{ left:auto; right:0; }
+body[dir="rtl"] .svc-index-btn.active{ padding-left:1.3rem; padding-right:calc(1.3rem - 3px); }
+.svc-roman{ font-family:var(--mono); font-size:.82rem; color:var(--brass-deep); font-weight:600; flex-shrink:0; width:1.8rem; }
+.svc-index-title{ font-size:.88rem; font-weight:600; color:var(--ink); line-height:1.35; }
+.svc-index-btn.active .svc-index-title{ color:var(--brass-deep); }
 
-        /* Interactivity Modules (Careers & Communication Units) */
-        .career-card {
-            border: 1px solid var(--border-color);
-            background: #ffffff;
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            transition: var(--transition);
-        }
+.services-detail{ padding:2.6rem; position:relative; }
+.svc-panel{ display:none; }
+.svc-panel.active{ display:grid; grid-template-columns:1.1fr .9fr; gap:2.2rem; align-items:center; animation:svcIn .5s var(--ease); }
+@keyframes svcIn{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:translateY(0);} }
+.svc-num-badge{ font-family:var(--mono); color:var(--brass); font-size:.8rem; letter-spacing:.05em; margin-bottom:.6rem; display:block; }
+.svc-panel h3{ font-family:var(--serif); font-size:1.55rem; color:var(--ink); margin:0 0 1rem; line-height:1.25; }
+.svc-panel p{ color:var(--muted); line-height:1.7; margin:0; }
+.svc-img{ height:230px; border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--line); }
+.svc-img img{ width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+.svc-img:hover img{ transform:scale(1.05); }
+.svc-fallback{
+  display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:.5rem;
+  background:linear-gradient(160deg,#EDE7D8,#E3DBC6); color:var(--brass-deep);
+}
+.svc-fallback i{ font-size:1.6rem; }
+.svc-fallback span{ font-family:var(--mono); font-size:.68rem; text-align:center; padding:0 1rem; letter-spacing:.03em; }
 
-        .career-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-        }
+.services-controls{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 2.6rem; border-top:1px solid var(--line); background:var(--paper);
+}
+.svc-nav-btn{
+  width:38px; height:38px; border:1px solid var(--line); background:#fff; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; transition:all .25s var(--ease);
+}
+.svc-nav-btn:hover{ border-color:var(--brass); color:var(--brass-deep); }
+.svc-progress{ font-family:var(--mono); font-size:.76rem; color:var(--muted); }
 
-        .form-control, .form-select {
-            padding: 0.85rem 1.1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            background-color: #ffffff;
-            transition: var(--transition);
-        }
+@media (max-width: 900px){
+  .services-shell{ grid-template-columns:1fr; }
+  .services-index{ max-height:220px; }
+  .svc-panel.active{ grid-template-columns:1fr; }
+  .services-detail{ padding:1.6rem; }
+  .services-controls{ padding:1rem 1.6rem; }
+}
 
-        .form-control:focus, .form-select:focus {
-            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
-            border-color: var(--accent-blue);
-        }
+/* ============================================================
+   CAREERS
+   ============================================================ */
+.careers-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:2.6rem; align-items:start; }
+.careers-copy p{ color:var(--muted); line-height:1.75; }
+.careers-copy .pull-quote{ margin-bottom:1.4rem; padding-left:1.6rem; font-size:1.2rem; }
+.careers-copy .pull-quote::before{ font-size:2.6rem; top:-.6rem; }
 
-        .contact-widget-card {
-            border: 1px solid var(--border-color);
-            background: #ffffff;
-            border-radius: var(--radius-md);
-            padding: 2rem 1.5rem;
-            height: 100%;
-            transition: var(--transition);
-        }
+.form-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:2.4rem; }
+.form-card h4{ font-family:var(--serif); font-size:1.35rem; margin:0 0 .4rem; color:var(--ink); }
+.form-card .sub{ color:var(--muted); font-size:.88rem; margin-bottom:1.6rem; }
 
-        .contact-widget-card:hover {
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 25px rgba(13, 110, 253, 0.05);
-        }
+.field{ margin-bottom:1.2rem; }
+.field label{
+  display:block; font-family:var(--mono); font-size:.72rem; letter-spacing:.05em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:.45rem;
+}
+.field input[type=text], .field input[type=email], .field select{
+  width:100%; padding:.8rem .9rem; border:1px solid #C9C2AC; border-radius:2px;
+  background:#fff; font-family:var(--sans); font-size:.94rem; color:var(--text);
+  transition:border-color .25s, box-shadow .25s;
+}
+.field input:focus, .field select:focus{
+  border-color:var(--brass); box-shadow:0 0 0 3px rgba(180,145,91,.18); outline:none;
+}
+.field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+@media (max-width:560px){ .field-row{ grid-template-columns:1fr; } }
 
-        .map-frame-wrapper {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background: #ffffff;
-            padding: 1rem;
-        }
+.file-drop{
+  border:1px dashed #C9C2AC; border-radius:2px; padding:1.2rem; display:flex; align-items:center; gap:1rem;
+  background:var(--paper); cursor:pointer; transition:border-color .25s;
+}
+.file-drop:hover{ border-color:var(--brass); }
+.file-drop i{ font-size:1.3rem; color:var(--brass-deep); }
+.file-drop-text{ font-size:.85rem; color:var(--muted); }
+.file-drop-text strong{ color:var(--text); display:block; font-size:.88rem; }
+.file-drop input[type=file]{ display:none; }
 
-        /* Base Responsive Footers */
-        footer {
-            background-color: var(--dark-blue);
-            color: #ffffff;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: auto;
-        }
+.submit-btn{
+  width:100%; padding:.95rem; background:var(--ink); color:#fff; border:0; border-radius:2px;
+  font-weight:600; letter-spacing:.02em; font-size:.92rem; display:flex; align-items:center; justify-content:center; gap:.6rem;
+  transition:background .25s;
+}
+.submit-btn:hover{ background:var(--ink-3); }
+.submit-btn:disabled{ opacity:.75; cursor:not-allowed; }
 
-        .footer-action-link {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
+.alert-box{
+  border-radius:2px; padding:1rem 1.2rem; margin-bottom:1.4rem; font-size:.9rem; line-height:1.55;
+  border-left:3px solid var(--brass); background:#FBF6EA; color:#5B4A28; display:none;
+}
+.alert-box.show{ display:block; animation:svcIn .4s var(--ease); }
 
-        .footer-action-link:hover {
-            color: #ffffff;
-        }
+@media (max-width: 900px){ .careers-grid{ grid-template-columns:1fr; } }
 
-        /* Responsive Tweaks for Carousels */
-        @media (max-width: 992px) {
-            .services-carousel .carousel-control-prev { left: 0px; }
-            .services-carousel .carousel-control-next { right: 0px; }
-            .service-slide-card { padding: 1.5rem; }
-        }
-    </style>
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; margin-bottom:2.6rem; }
+.contact-card{
+  position:relative; background:#fff; border:1px solid var(--line); border-top:0;
+  border-radius:0 0 var(--radius-sm) var(--radius-sm); padding:1.8rem 1.4rem; text-align:center;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.contact-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--gradient-blue);
+}
+.contact-card:hover{ transform:translateY(-4px); box-shadow:0 16px 30px rgba(11,20,32,.08); }
+.contact-card i{ font-size:1.5rem; color:var(--brass-deep); margin-bottom:.7rem; display:block; }
+.contact-card h5{ font-family:var(--serif); font-size:1.05rem; margin:0 0 .3rem; color:var(--ink); }
+.contact-card .role{ font-size:.78rem; color:var(--muted); margin-bottom:.7rem; }
+.contact-card a{ display:block; font-size:.82rem; text-decoration:none; color:var(--steel); font-weight:600; word-break:break-word; }
+.contact-card a.tel{ color:var(--muted); font-weight:500; margin-top:.2rem; }
+
+.contact-card.one-line{ text-align:left; }
+.contact-line{
+  display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; gap:.6rem; overflow-x:auto;
+  font-size:.8rem; padding-bottom:.2rem;
+}
+.contact-line a{ display:inline; white-space:nowrap; }
+.contact-line .sep{ color:var(--line); flex-shrink:0; }
+body[dir="rtl"] .contact-card.one-line{ text-align:right; }
+
+@media (max-width: 900px){ .contact-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width: 560px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.hq-grid{ display:grid; grid-template-columns:.9fr 1.1fr; gap:2.4rem; align-items:center; }
+.hq-grid h4{ font-family:var(--serif); font-size:1.5rem; color:var(--ink); margin:0 0 .8rem; }
+.hq-grid p{ color:var(--muted); line-height:1.7; }
+.hq-addr{ font-family:var(--mono); font-size:.82rem; color:var(--brass-deep); display:flex; gap:.6rem; align-items:flex-start; margin-top:1rem; }
+.map-frame{ border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:#fff; }
+.map-frame .map-label{ font-family:var(--mono); font-size:.72rem; text-align:center; padding:.8rem; color:var(--muted); border-bottom:1px solid var(--line); }
+.map-img-wrap{ position:relative; height:280px; }
+.map-img-wrap img{ width:100%; height:100%; object-fit:cover; }
+.map-fallback{
+  display:none; width:100%; height:100%; align-items:center; justify-content:center; flex-direction:column; gap:.6rem;
+  background:linear-gradient(160deg,#EDE7D8,#E3DBC6); color:var(--brass-deep);
+}
+.map-fallback i{ font-size:1.8rem; }
+.map-fallback span{ font-family:var(--mono); font-size:.72rem; }
+
+@media (max-width: 900px){ .hq-grid{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background:
+    radial-gradient(ellipse 700px 260px at 15% 0%, rgba(13,110,253,.16), transparent 65%),
+    var(--ink);
+  color:var(--muted-on-ink); padding:2.4rem 0; margin-top:2rem;
+  border-top:1px solid var(--line-on-ink);
+}
+.footer-row{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.2rem; }
+.footer-link{ color:var(--muted-on-ink); text-decoration:none; font-size:.85rem; transition:color .25s; }
+.footer-link:hover{ color:#fff; }
+.footer-links{ display:flex; gap:1.8rem; flex-wrap:wrap; }
+.footer-brand{ font-family:var(--mono); font-size:.74rem; letter-spacing:.03em; color:var(--muted-on-ink); }
+
+.to-top{
+  position:fixed; right:1.4rem; bottom:1.4rem; width:44px; height:44px; border-radius:50%;
+  background:var(--brass); color:var(--ink); border:0; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 10px 24px rgba(0,0,0,.25); opacity:0; pointer-events:none; transform:translateY(10px);
+  transition:all .35s var(--ease); z-index:900;
+}
+.to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+
+/* ============================================================
+   RESPONSIVE — HERO
+   ============================================================ */
+@media (max-width: 960px){
+  .hero-grid{ grid-template-columns:1fr; gap:2.2rem; }
+}
+</style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm">
+<header class="site-header" id="siteHeader">
+  <div class="container nav-row">
+    <button class="brand" onclick="switchPortalView('home')">
+      <span class="brand-mark">IC</span>
+      <span class="brand-word">InterConsulta <span class="accent">Egypt</span></span>
+    </button>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+      <button class="nav-link-btn active" id="btn-home" onclick="switchPortalView('home')" data-i18n="nav.home">Home</button>
+      <button class="nav-link-btn" id="btn-about" onclick="switchPortalView('about')" data-i18n="nav.about">About &amp; History</button>
+      <button class="nav-link-btn" id="btn-services" onclick="switchPortalView('services')" data-i18n="nav.services">Our Services</button>
+      <button class="nav-link-btn" id="btn-careers" onclick="switchPortalView('careers')" data-i18n="nav.careers">Careers</button>
+      <button class="nav-link-btn" id="btn-contact" onclick="switchPortalView('contact')" data-i18n="nav.contact">Contact &amp; Visit</button>
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" type="button">EN / عربي</button>
+        <div id="google_translate_element"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <!-- ============ HOME ============ -->
+    <section id="view-home" class="app-view active-view">
+
+      <div class="hero" style="margin:0 -1.5rem;">
         <div class="container">
-            <button class="navbar-brand d-flex align-items-center bg-transparent border-0 text-white" onclick="switchPortalView('home')">
-                <span class="fw-extrabold tracking-wide">InterConsulta <span class="text-info">Egypt</span></span>
-            </button>
-            
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <div class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-1">
-                    <button class="nav-link-btn active" id="btn-home" onclick="switchPortalView('home')">Home</button>
-                    <button class="nav-link-btn" id="btn-about" onclick="switchPortalView('about')">About & History</button>
-                    <button class="nav-link-btn" id="btn-services" onclick="switchPortalView('services')">Our Services</button>
-                    <button class="nav-link-btn" id="btn-careers" onclick="switchPortalView('careers')">Careers</button>
-                    <button class="nav-link-btn" id="btn-contact" onclick="switchPortalView('contact')">Contact & Visit</button>
-                    <div class="ms-lg-2 mt-2 mt-lg-0">
-                        <div id="google_translate_element" class="shadow-sm"></div>
-                    </div>
-                </div>
+          <div class="hero-grid">
+            <div>
+              <div class="hero-kicker eyebrow" data-i18n="hero.eyebrow">Global Business Advisory · Est. 1964</div>
+              <h1 data-i18n-html="hero.h1">Your strategic <em>global partner</em>, since Zürich, 1964.</h1>
+              <p class="hero-lead" data-i18n="hero.lead">
+                InterConsulta Egypt delivers highly specialized corporate solutions to scale, protect and legally align your enterprise vision — from capital structuring to cross-border litigation.
+              </p>
+              <div class="hero-credentials">
+                <span><i class="bi bi-bank"></i><span data-i18n="hero.cred1">Zürich, 1964</span></span>
+                <span><i class="bi bi-geo-alt"></i><span data-i18n="hero.cred2">Cairo, 1983</span></span>
+                <span><i class="bi bi-diagram-3"></i><span data-i18n="hero.cred3">11 practice areas</span></span>
+              </div>
+              <div class="btn-row">
+                <button onclick="switchPortalView('services')" class="btn btn-brass"><span data-i18n="hero.btn1">Explore Solutions</span> <i class="bi bi-arrow-right"></i></button>
+                <button onclick="switchPortalView('contact')" class="btn btn-outline-light" data-i18n="hero.btn2">Request Callback</button>
+              </div>
+
+              <div class="pop-row" id="popRow">
+                <span class="pop-badge" data-i18n="pop.easy">Easy</span>
+                <span class="pop-badge" data-i18n="pop.simple">Simple</span>
+                <span class="pop-badge" data-i18n="pop.cheap">Cheap</span>
+                <span class="pop-badge" data-i18n="pop.fast">Fast</span>
+              </div>
             </div>
-        </div>
-    </nav>
 
-    <main class="dashboard-container">
-        <div class="container">
-
-            <section id="view-home" class="app-view active-view">
-                <div class="hero-banner mb-4">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <img src="logo.png" alt="InterConsulta Egypt Logo" class="img-fluid logo-hero mb-4">
-                            <h1 class="display-4 fw-extrabold text-white mb-3">Your Strategic <span class="text-info">Global Partner</span></h1>
-                            <p class="lead text-white-50 mb-4">
-                                At InterConsulta Egypt, we offer highly specialized corporate solutions to scale, protect, and legally align your enterprise vision.
-                            </p>
-                            <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
-                                <button onclick="switchPortalView('services')" class="btn btn-info btn-lg px-4 text-white fw-bold shadow-sm">Explore Solutions</button>
-                                <button onclick="switchPortalView('contact')" class="btn btn-outline-light btn-lg px-4">Request Callback</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div id="heroCarousel" class="carousel slide carousel-fade carousel-wrapper shadow-lg" data-bs-ride="carousel" data-bs-interval="4000">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="carousel-img-container" style="background-image: url('fin.jpg');">
-                                            <img src="fin.jpg" alt="Wealth Advisory Solutions">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-img-container" style="background-image: url('mus.jpg');">
-                                            <img src="mus.jpg" alt="Premium Historical Events Operations">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-img-container" style="background-image: url('create.jpg');">
-                                            <img src="create.jpg" alt="Strategic Corporate Incorporations">
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="carousel-img-container" style="background-image: url('sec.jpg');">
-                                            <img src="sec.jpg" alt="Institutional Cybersecurity Auditing">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="dossier">
+              <div class="dossier-frame" id="heroFrame">
+                <div class="dossier-slide active" data-img="fin.jpg">
+                  <img src="fin.jpg" alt="Wealth advisory solutions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="dossier-fallback"><i class="bi bi-graph-up-arrow"></i><span>Financial &amp; Capital Advisory</span></div>
+                  <div class="dossier-caption">Financial &amp; Capital Advisory</div>
                 </div>
-
-                <div class="premium-card text-center py-5">
-                    <div class="row justify-content-center">
-                        <div class="col-xl-9">
-                            <h2 class="fw-bold text-dark-blue mb-3">Our Mission is Simple</h2>
-                            <p class="lead text-secondary mb-0">
-                                We place our corporate clients first. Whether you are structuring complex venture capital funding, executing cross-border portfolio transformations, or orchestrating high-profile diplomatic summits at the Giza Pyramids, our global advisory converts ambition into highly compliant reality.
-                            </p>
-                        </div>
-                    </div>
+                <div class="dossier-slide" data-img="mus.jpg">
+                  <img src="mus.jpg" alt="Historical event operations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="dossier-fallback"><i class="bi bi-bank2"></i><span>Historical Event Architecture</span></div>
+                  <div class="dossier-caption">Historical Event Architecture</div>
                 </div>
-            </section>
-
-            <section id="view-about" class="app-view">
-                <h2 class="view-title">Corporate Intelligence</h2>
-                
-                <div class="row g-4 mb-4">
-                    <div class="col-lg-7">
-                        <div class="premium-card h-100 mb-0">
-                            <h3 class="h4 fw-bold text-dark-blue mb-3">About Us</h3>
-                            <p class="text-secondary text-justify mb-3">
-                                Established originally in Switzerland in 1964, InterConsulta Egypt remains a premier institutional standard-bearer for operational execution and corporate growth strategy. Establishing operations in Egypt in 1983, the enterprise became directly involved in core national industrial infrastructure pathways.
-                            </p>
-                            <p class="text-secondary text-justify mb-0">
-                                Following a corporate relaunch in 2017, the firm specifically channels high-level portfolio wealth management, asset verification metrics, and specialized structural consulting for multinational entities.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="premium-card h-100 mb-0 bg-light border-primary border-opacity-25">
-                            <h4 class="h5 text-primary fw-bold mb-3"><i class="bi bi-shield-check me-2"></i>Institutional Standards</h4>
-                            <p class="text-secondary mb-0">
-                                Utilizing precise regional index assessments, risk analysis architecture, and an elite team of senior legal and financial specialists, we supply custom target frameworks to address the modern dynamics of the Egyptian macroeconomy.
-                            </p>
-                        </div>
-                    </div>
+                <div class="dossier-slide" data-img="create.jpg">
+                  <img src="create.jpg" alt="Corporate incorporations" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="dossier-fallback"><i class="bi bi-building-add"></i><span>Corporate Incorporations</span></div>
+                  <div class="dossier-caption">Corporate Incorporations</div>
                 </div>
-
-                <div class="premium-card">
-                    <h3 class="h4 fw-bold text-dark-blue mb-2">Our History</h3>
-                    <p class="lead text-primary fw-semibold mb-4">Decades of unbroken cross-border trust and generational client retainment.</p>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="p-3 bg-white rounded border h-100">
-                                <p class="text-secondary mb-0">
-                                    In a business ecosystem shaped by rapid technological shifts and unpredictable regulatory transitions, InterConsulta stands as a steady, reliable anchor. Since 1964, we have never stopped innovating, constantly updating our delivery platforms alongside our corporate network.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-3 bg-white rounded border h-100">
-                                <p class="text-secondary mb-0">
-                                    The definitive verification of our success lies in our client longevity—many of our premier institutional partners have retained our consultation tracks through multi-generational successions. We established strong operational branches in Egypt from 1984 to 1999, renewing our nationwide expansion under our optimized 2017 baseline framework.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="dossier-slide" data-img="sec.jpg">
+                  <img src="sec.jpg" alt="Cybersecurity auditing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                  <div class="dossier-fallback"><i class="bi bi-shield-lock"></i><span>Cybersecurity Auditing</span></div>
+                  <div class="dossier-caption">Cybersecurity Auditing</div>
                 </div>
-            </section>
-
-            <section id="view-services" class="app-view">
-                <div class="mb-4">
-                    <h2 class="view-title">Operational Sectors</h2>
-                    <p class="text-secondary">Comprehensive expertise and regulatory mastery sliding smoothly across core operational sectors.</p>
-                </div>
-
-                <div id="dynamicServicesCarousel" class="carousel slide services-carousel" data-bs-ride="carousel" data-bs-interval="5000">
-                    <div class="carousel-inner">
-                        
-                        <div class="carousel-item active">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">01</span>
-                                            <h3 class="service-slide-title">Financial Consultations & Capital Solutions</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We provide high-tier advice on corporate financial budgets, liquidity configurations, and capital lines. Our structural frameworks integrate complete asset viability analyses, feasibility evaluations, specialized capital trials, employee pension fund protection architectures, statutory commercial liquidations, and ring-fenced account management.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="fin.jpg" alt="Finance">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">02</span>
-                                            <h3 class="service-slide-title">Project Management & Capital Wealth Formation</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We closely monitor shifting global macroeconomic matrices and investment trends to provide clarity for corporate asset allocation. Our expertise helps organizations convert abstract market insights into practical, scalable corporate wealth growth solutions.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="trendnew.jpg" alt="Wealth">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">03</span>
-                                            <h3 class="service-slide-title">Cybersecurity Analysis & Vulnerability Auditing</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We design and deploy modern, robust security mapping solutions for enterprise databases, operational controls, and web applications. Our assessments systematically detect weaknesses, helping protect your intellectual property and user transactions against evolving threat landscapes.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="sec.jpg" alt="Cybersecurity">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">04</span>
-                                            <h3 class="service-slide-title">Legal Consultation, International Arbitration & Litigation</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We guide and manage complex cross-border corporate contentions, litigation pipelines, and international arbitrations across global seats. We help protect investment parameters, minimize institutional liability, and secure pre- and post-transaction assets.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="international_arbitration.jpg" alt="Arbitration">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">05</span>
-                                            <h3 class="service-slide-title">Entity Incorporation, Trademarking & HR Outsourcing</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We streamline new corporate incorporations and support business transformations. Our specialized support covers international trademark registrations, securing official Silver, Gold, and Diamond government investment incentives, and utilizing free-zone tax benefits, backed by tailored recruitment pipelines and training tracks.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="create.jpg" alt="Company Formation">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">06</span>
-                                            <h3 class="service-slide-title">Infrastructure Development & Developer Permits</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We manage developer licensing tracks and regulatory permissions for large-scale urban development programs. Our operational scope handles specialized industrial setup planning (including dedicated cement stations), prime contractor vetting, and international institutional project financing configurations.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="construction.jpg" alt="Construction">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">07</span>
-                                            <h3 class="service-slide-title">Holistic Government & Private Executive Insurance</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We establish and structure tailored corporate asset protection packages across official state frameworks, bespoke private corporate indemnity networks, large-scale property risk management bonds, and comprehensive health care systems for executive teams.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="insurance.jpg" alt="Insurance">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">08</span>
-                                            <h3 class="service-slide-title">Strategic Corporate Accounting & Fiscal Auditing</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We provide premium, clear compliance support for localized and cross-border tax guidelines. We manage evolving tax updates efficiently, allowing your executive leadership to focus entirely on core business operations during rigorous financial audits.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="audit.jpg" alt="Audit">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">09</span>
-                                            <h3 class="service-slide-title">Hospitality Vetting & Nile Vessel Licensing</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We coordinate and manage official Ministry of Tourism and Antiquities compliance steps for premium culinary venues, tourist resorts, and floating Nile cruise ships. We accelerate paperwork workflows across high-tier licensing categories to ensure timely, compliant market entry.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="nile.jpg" alt="Hospitality">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="service-slide-card">
-                                <div class="row align-items-center g-4">
-                                    <div class="col-lg-7">
-                                        <div class="service-header-row">
-                                            <span class="service-slide-num">10</span>
-                                            <h3 class="service-slide-title">High-Profile Historical Event Architecture</h3>
-                                        </div>
-                                        <p class="text-secondary leading-relaxed fs-5">
-                                            We organize and execute international corporate events at historical landmarks such as the Grand Egyptian Museum, Giza Pyramids, and Le Lac du Caire. Our operational logistics handle site rentals, high-end catering, secure climate control setups, diplomat security protocols, Civil Defense alignments, and total crowd flow architectures.
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-5">
-                                        <div class="service-img-wrapper shadow-sm">
-                                            <img src="mus.jpg" alt="Events Planning">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    
-                    <button class="carousel-control-prev shadow" type="button" data-bs-target="#dynamicServicesCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next shadow" type="button" data-bs-target="#dynamicServicesCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </section>
-
-            <section id="view-careers" class="app-view">
-                <h2 class="view-title">Human Capital Track</h2>
-                
-                <div class="row g-5">
-                    <div class="col-lg-5">
-                        <p class="lead text-primary fw-semibold mb-3">Shape the future of global enterprise operations from Cairo.</p>
-                        <p class="text-secondary text-justify mb-4">
-                            At InterConsulta Egypt, we bring together senior legal counsels, technical auditors, and strategic financial analysts to form elite advisory squads. We offer cross-border dynamic environments, clear pathways to partnership, and competitive institutional compensation setups.
-                        </p>
-                    </div>
-
-                    <div class="col-lg-7">
-                        <div class="premium-card bg-white">
-                            <h4 class="fw-bold text-dark-blue mb-2">Submit Your Credentials</h4>
-                            <p class="text-muted small mb-4">Join our elite consultancy tier. Upload your professional background profiling sheets below.</p>
-                            
-                            <div id="formFeedback" class="alert d-none mb-3" role="alert"></div>
-
-                            <form id="applicationForm">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-semibold text-secondary">Full Name</label>
-                                        <input type="text" id="applicantName" class="form-control" placeholder="John Doe" required>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label small fw-semibold text-secondary">Email Address</label>
-                                        <input type="email" id="applicantEmail" class="form-control" placeholder="johndoe@enterprise.com" required>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label small fw-semibold text-secondary">Target Practice Area</label>
-                                        <select id="applicantTrack" class="form-select">
-                                            <option value="Financial Advisory Track" selected>Senior Account Officer</option>
-                                            <option value="Legal & Arbitration Track">Business Development</option>
-                                            <option value="Cybersecurity Analysis Control">Relationship Manager</option>
-                                            <option value="Infrastructure Logistics Management">Team Leader for Account Officers</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label small fw-semibold text-secondary">Attach Curriculum Vitae (PDF format)</label>
-                                        <input type="file" id="applicantFile" class="form-control" accept=".pdf" required>
-                                    </div>
-                                    <div class="col-12 mt-4">
-                                        <button type="submit" id="submitBtn" class="btn btn-primary w-100 py-3 fw-medium shadow-sm">
-                                            <span id="btnText">Process Application</span>
-                                            <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="view-contact" class="app-view">
-                <h2 class="view-title">Global Channels</h2>
-                
-                <div class="row g-4 mb-5">
-                    <div class="col-md-6 col-xl-3">
-                        <div class="contact-widget-card text-center border-top border-primary border-3">
-                            <i class="bi bi-gear-wide-connected text-primary fs-2 mb-2"></i>
-                            <h5 class="fw-bold text-dark-blue mb-1">Operations Directorate</h5>
-                            <p class="text-muted small fw-semibold mb-2">Mr. Sameh S. Mosaad</p>
-                            <div class="d-flex flex-column gap-1 small">
-                                <a href="mailto:sameh.mosaad@interconsultaegypt.com" class="text-decoration-none fw-semibold text-primary text-truncate">sameh.mosaad@interconsultaegypt.com</a>
-                                <a href="tel:+201068568666" class="text-decoration-none fw-semibold text-secondary">+20 106 856 8666</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="contact-widget-card text-center">
-                            <i class="bi bi-people text-primary fs-2 mb-2"></i>
-                            <h5 class="fw-bold text-dark-blue mb-1">Human Resources</h5>
-                            <p class="text-muted small mb-2">Careers and onboarding</p>
-                            <div class="small">
-                                <a href="mailto:hr@interconsultaegypt.com" class="text-decoration-none fw-semibold text-primary">hr@interconsultaegypt.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="contact-widget-card text-center">
-                            <i class="bi bi-cash-coin text-primary fs-2 mb-2"></i>
-                            <h5 class="fw-bold text-dark-blue mb-1">Sales & Retainers</h5>
-                            <p class="text-muted small mb-2">Client setups and retainers</p>
-                            <div class="small">
-                                <a href="mailto:sales@interconsultaegypt.com" class="text-decoration-none fw-semibold text-primary">sales@interconsultaegypt.com</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-xl-3">
-                        <div class="contact-widget-card text-center">
-                            <i class="bi bi-info-circle text-primary fs-2 mb-2"></i>
-                            <h5 class="fw-bold text-dark-blue mb-1">General Inquiries</h5>
-                            <p class="text-muted small mb-2">Administrative support</p>
-                            <div class="small">
-                                <a href="mailto:info@interconsultaegypt.com" class="text-decoration-none fw-semibold text-primary">info@interconsultaegypt.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="premium-card">
-                    <div class="row g-5 align-items-center">
-                        <div class="col-lg-5">
-                            <h4 class="fw-bold text-dark-blue mb-1">Our Headquarters</h4>
-                            <p class="text-secondary text-justify my-3">
-                                InterConsulta Egypt's central administrative and legal advisory suites are located strategically within Cairo's primary industrial and legislative hub, allowing real-time synchronization with government ministries and corporate investment zones.
-                            </p>
-                            <p class="text-muted small mb-0"><i class="bi bi-geo-alt-fill text-primary me-2"></i> 129 Othman Ibn Affan St., In Front Of The Old Military Academy, El Nozha, Cairo, Egypt.</p>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="map-frame-wrapper shadow-sm">
-                                <p class="text-muted text-center small mb-2">Our Google Location</p>
-                                <a href="https://maps.app.goo.gl/9cbFcvSKqGU44szx5?g_st=aw" target="_blank" class="d-block text-center">
-                                <img src="InterMap.JPG" class="img-fluid rounded border" alt="Our Location" style="max-height:300px; width:100%; object-fit:cover;">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                <a href="https://www.linkedin.com/company/interconsulta-egypt/mycompany/" target="_blank" class="footer-action-link small">
-                    <i class="bi bi-linkedin me-2 text-info"></i>Connect with us on LinkedIn
-                </a>
-                <div class="small d-flex gap-4">
-                    <button onclick="switchPortalView('home')" class="btn btn-link p-0 text-white-50 text-decoration-none small">Top</button>
-                    <button onclick="switchPortalView('services')" class="btn btn-link p-0 text-white-50 text-decoration-none small">Sectors</button>
-                    <button onclick="switchPortalView('careers')" class="btn btn-link p-0 text-white-50 text-decoration-none small">Careers Portal</button>
-                </div>
+              </div>
+              <div class="dossier-dots" id="heroDots"></div>
             </div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <div class="stats-strip" style="margin:0 -1.5rem;">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat reveal">
+              <div class="stat-num" data-count-to="60" data-suffix="+">0</div>
+              <div class="stat-label" data-i18n="stats.label1">Years of continuous operation</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-num" data-count-to="1983">0</div>
+              <div class="stat-label" data-i18n="stats.label2">Established in Cairo</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-num" data-count-to="11">0</div>
+              <div class="stat-label" data-i18n="stats.label3">Active practice areas</div>
+            </div>
+            <div class="stat reveal">
+              <div class="stat-num" data-count-to="2">0</div>
+              <div class="stat-label" data-i18n="stats.label4">Nations of origin — CH &amp; EG</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <script type="text/javascript">
-        function switchPortalView(viewId) {
-            // Hide alternative sibling views
-            const views = document.querySelectorAll('.app-view');
-            views.forEach(view => view.classList.remove('active-view'));
-            
-            // De-select current nav headers
-            const navButtons = document.querySelectorAll('.nav-link-btn');
-            navButtons.forEach(btn => btn.classList.remove('active'));
+      <div class="section-tight">
+        <div class="pull-quote pull-quote-full reveal" data-i18n="mission.quote">
+          We place our corporate clients first — whether structuring complex venture capital funding, executing cross-border portfolio transformations, or orchestrating high-profile diplomatic summits at the Giza Pyramids, our global advisory converts ambition into compliant reality.
+        </div>
 
-            // Display current dynamic target
-            const targetView = document.getElementById('view-' + viewId);
-            if(targetView) {
-                targetView.classList.add('active-view');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        <div class="chip-row reveal" id="chipRow">
+          <!-- populated by JS from SECTOR list -->
+        </div>
+      </div>
+    </section>
 
-            // Highlight target nav controls
-            const targetBtn = document.getElementById('btn-' + viewId);
-            if(targetBtn) {
-                targetBtn.classList.add('active');
-            }
-        }
-    </script>
+    <!-- ============ ABOUT ============ -->
+    <section id="view-about" class="app-view">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="about.eyebrow">The Firm</div>
+        <h2 class="section-title" data-i18n="about.title">Corporate Intelligence</h2>
+      </div>
 
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <div class="about-grid reveal">
+        <div class="card">
+          <h3 data-i18n="about.card.title">About Us</h3>
+          <p data-i18n="about.card.p1">
+            Established originally in Switzerland in 1964, InterConsulta Egypt remains a premier institutional standard-bearer for operational execution and corporate growth strategy. Establishing operations in Egypt in 1983, the enterprise became directly involved in core national industrial infrastructure pathways.
+          </p>
+          <p data-i18n="about.card.p2">
+            Following a corporate relaunch in 2017, the firm channels high-level portfolio wealth management, asset verification metrics, and specialized structural consulting for multinational entities.
+          </p>
+        </div>
+        <div class="about-callout">
+          <h4><i class="bi bi-shield-check me-2"></i><span data-i18n="about.callout.title">Institutional Standards</span></h4>
+          <p data-i18n="about.callout.p">
+            Utilizing precise regional index assessments, risk analysis architecture, and an elite team of senior legal and financial specialists, we supply custom target frameworks to address the modern dynamics of the Egyptian macroeconomy.
+          </p>
+        </div>
+      </div>
 
-    <script type="text/javascript">
-        document.getElementById('applicationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+      <div class="section-tight">
+        <div class="section-head reveal" style="margin-bottom:1.8rem;">
+          <div class="eyebrow" data-i18n="history.eyebrow">The Record</div>
+          <h2 class="section-title" style="font-size:1.8rem;" data-i18n="history.title">Our History</h2>
+          <p class="section-sub" data-i18n="history.sub">Decades of unbroken cross-border trust and generational client retainment.</p>
+        </div>
 
-            const name = document.getElementById('applicantName').value;
-            const track = document.getElementById('applicantTrack').value;
-            const feedbackBox = document.getElementById('formFeedback');
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const btnText = document.getElementById('btnText');
-            const btnSpinner = document.getElementById('btnSpinner');
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <span class="timeline-date" data-i18n="tl1.date">1964 — Zürich</span>
+            <h5 data-i18n="tl1.title">Founding of the firm</h5>
+            <p data-i18n="tl1.desc">InterConsulta is established in Switzerland, laying the institutional foundation that still governs our advisory discipline today.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date" data-i18n="tl2.date">1983 — Cairo</span>
+            <h5 data-i18n="tl2.title">Egyptian operations begin</h5>
+            <p data-i18n="tl2.desc">The firm establishes a permanent presence in Egypt, becoming directly involved in core national industrial infrastructure pathways.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date" data-i18n="tl3.date">1984 – 1999 — Nationwide expansion</span>
+            <h5 data-i18n="tl3.title">Branch network growth</h5>
+            <p data-i18n="tl3.desc">Strong operational branches are established across Egypt, deepening ties with government ministries and corporate investment zones.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date" data-i18n="tl4.date">2017 — Relaunch</span>
+            <h5 data-i18n="tl4.title">Optimized baseline framework</h5>
+            <p data-i18n="tl4.desc">A corporate relaunch sharpens our focus on portfolio wealth management, asset verification, and structural consulting for multinational entities.</p>
+          </div>
+        </div>
 
-            submitBtn.disabled = true;
-            btnText.textContent = "Processing Profiles... ";
-            btnSpinner.classList.remove('d-none');
+        <div class="card reveal" style="margin-top:2rem;">
+          <p style="color:var(--muted); line-height:1.75; margin:0;" data-i18n="about.closing">
+            In a business ecosystem shaped by rapid technological shifts and unpredictable regulatory transitions, InterConsulta stands as a steady, reliable anchor. The definitive verification of our success lies in our client longevity — many of our premier institutional partners have retained our consultation tracks through multi-generational successions.
+          </p>
+        </div>
+      </div>
+    </section>
 
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                btnText.textContent = "Process Application";
-                btnSpinner.classList.add('d-none');
+    <!-- ============ SERVICES ============ -->
+    <section id="view-services" class="app-view">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="services.eyebrow">The Index</div>
+        <h2 class="section-title" data-i18n="services.title">Operational Sectors</h2>
+        <p class="section-sub" data-i18n="services.sub">Eleven practice areas, indexed below. Select any entry, or let the record advance on its own.</p>
+      </div>
 
-                feedbackBox.classList.remove('d-none', 'alert-danger');
-                feedbackBox.classList.add('alert-success');
-                feedbackBox.innerHTML = `<strong>Submission successful!</strong> Thank you ${name}. Your profile for the <em>${track}</em> track has been delivered to our HR Directorate.`;
-                
-                document.getElementById('applicationForm').reset();
-            }, 1500);
-        });
-    </script>
+      <div class="services-shell reveal" id="servicesShell">
+        <nav class="services-index" id="servicesIndex" aria-label="Sector index"></nav>
+
+        <div>
+          <div class="services-detail" id="servicesDetail"></div>
+          <div class="services-controls">
+            <button class="svc-nav-btn" id="svcPrev" aria-label="Previous sector"><i class="bi bi-arrow-left"></i></button>
+            <span class="svc-progress" id="svcProgress">I / XI</span>
+            <button class="svc-nav-btn" id="svcNext" aria-label="Next sector"><i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CAREERS ============ -->
+    <section id="view-careers" class="app-view">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="careers.eyebrow">Human Capital</div>
+        <h2 class="section-title" data-i18n="careers.title">Join the Firm</h2>
+      </div>
+
+      <div class="careers-grid">
+        <div class="careers-copy reveal">
+          <div class="pull-quote" data-i18n="careers.quote">Shape the future of global enterprise operations from Cairo.</div>
+          <p data-i18n="careers.p">
+            At InterConsulta Egypt, we bring together senior legal counsels, technical auditors, and strategic financial analysts to form elite advisory squads. We offer cross-border dynamic environments, clear pathways to partnership, and competitive institutional compensation setups.
+          </p>
+        </div>
+
+        <div class="form-card reveal">
+          <h4 data-i18n="careers.form.title">Submit Your Credentials</h4>
+          <p class="sub" data-i18n="careers.form.sub">Join our elite consultancy tier. Upload your professional background profiling sheet below.</p>
+
+          <div id="formFeedback" class="alert-box" role="alert"></div>
+
+          <form id="applicationForm">
+            <div class="field-row">
+              <div class="field">
+                <label for="applicantName" data-i18n="careers.field.name">Full Name</label>
+                <input type="text" id="applicantName" placeholder="John Doe" required>
+              </div>
+              <div class="field">
+                <label for="applicantEmail" data-i18n="careers.field.email">Email Address</label>
+                <input type="email" id="applicantEmail" placeholder="johndoe@enterprise.com" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="applicantTrack" data-i18n="careers.field.track">Target Practice Area</label>
+              <select id="applicantTrack">
+                <option value="Senior Account Officer" data-i18n="careers.track1" selected>Senior Account Officer</option>
+                <option value="Business Development" data-i18n="careers.track2">Business Development</option>
+                <option value="Relationship Manager" data-i18n="careers.track3">Relationship Manager</option>
+                <option value="Team Leader for Account Officers" data-i18n="careers.track4">Team Leader for Account Officers</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label data-i18n="careers.field.cv">Attach Curriculum Vitae (PDF format)</label>
+              <label class="file-drop" id="fileDrop">
+                <i class="bi bi-file-earmark-arrow-up"></i>
+                <span class="file-drop-text">
+                  <strong id="fileDropName" data-i18n="careers.file.default">Choose a PDF file</strong>
+                  <span data-i18n="careers.file.hint">Click to browse — max 10MB</span>
+                </span>
+                <input type="file" id="applicantFile" accept=".pdf" required>
+              </label>
+            </div>
+
+            <div class="field" style="margin-top:1.6rem;">
+              <button type="submit" id="submitBtn" class="submit-btn">
+                <span id="btnText" data-i18n="careers.submit">Process Application</span>
+                <i class="bi bi-arrow-repeat" id="btnSpinner" style="display:none; animation:spin 1s linear infinite;"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="view-contact" class="app-view">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="contact.eyebrow">Reach Us</div>
+        <h2 class="section-title" data-i18n="contact.title">Global Channels</h2>
+      </div>
+
+      <div class="contact-grid reveal">
+        <div class="contact-card">
+          <i class="bi bi-gear-wide-connected"></i>
+          <h5 data-i18n="contact.card1.title">Operations Directorate</h5>
+          <div class="role">Mr. Sameh S. Mosaad</div>
+          <div class="contact-line">
+            <a href="mailto:sameh.mosaad@interconsultaegypt.com">sameh.mosaad@interconsultaegypt.com</a>
+            <span class="sep">·</span>
+            <a href="tel:+201068568666" class="tel">+20 106 856 8666</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <i class="bi bi-people"></i>
+          <h5 data-i18n="contact.card2.title">Human Resources</h5>
+          <div class="role" data-i18n="contact.card2.role">Careers and onboarding</div>
+          <a href="mailto:hr@interconsultaegypt.com">hr@interconsultaegypt.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="bi bi-cash-coin"></i>
+          <h5 data-i18n="contact.card3.title">Sales &amp; Retainers</h5>
+          <div class="role" data-i18n="contact.card3.role">Client setups and retainers</div>
+          <a href="mailto:sales@interconsultaegypt.com">sales@interconsultaegypt.com</a>
+        </div>
+        <div class="contact-card">
+          <i class="bi bi-info-circle"></i>
+          <h5 data-i18n="contact.card4.title">General Inquiries</h5>
+          <div class="role" data-i18n="contact.card4.role">Administrative support</div>
+          <a href="mailto:info@interconsultaegypt.com">info@interconsultaegypt.com</a>
+        </div>
+      </div>
+
+      <div class="card hq-grid reveal">
+        <div>
+          <h4 data-i18n="contact.hq.title">Our Headquarters</h4>
+          <p data-i18n="contact.hq.p">
+            InterConsulta Egypt's central administrative and legal advisory suites are located strategically within Cairo's primary industrial and legislative hub, allowing real-time synchronization with government ministries and corporate investment zones.
+          </p>
+          <div class="hq-addr">
+            <i class="bi bi-geo-alt-fill"></i>
+            <span data-i18n="contact.hq.addr">129 Othman Ibn Affan St., In Front Of The Old Military Academy, El Nozha, Cairo, Egypt.</span>
+          </div>
+        </div>
+        <div class="map-frame">
+          <div class="map-label" data-i18n="contact.map.label">Our Google Location</div>
+          <a href="https://maps.app.goo.gl/9cbFcvSKqGU44szx5?g_st=aw" target="_blank" rel="noopener">
+            <div class="map-img-wrap">
+              <img src="InterMap.JPG" alt="Our location" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <div class="map-fallback"><i class="bi bi-map"></i><span data-i18n="contact.map.cta">View on Google Maps →</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <a href="https://www.linkedin.com/company/interconsulta-egypt/mycompany/" target="_blank" rel="noopener" class="footer-link">
+      <i class="bi bi-linkedin me-2"></i><span data-i18n="footer.linkedin">Connect with us on LinkedIn</span>
+    </a>
+    <div class="footer-links">
+      <button class="footer-link" style="background:none;border:0;" onclick="switchPortalView('home')" data-i18n="footer.top">Top</button>
+      <button class="footer-link" style="background:none;border:0;" onclick="switchPortalView('services')" data-i18n="footer.sectors">Sectors</button>
+      <button class="footer-link" style="background:none;border:0;" onclick="switchPortalView('careers')" data-i18n="footer.careers">Careers Portal</button>
+    </div>
+    <div class="footer-brand">InterConsulta Egypt · Est. 1964</div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<style>@keyframes spin{ to{ transform:rotate(360deg); } }</style>
+
+<script>
+/* ============================================================
+   DATA — SECTORS
+   ============================================================ */
+const ROMANS = ['I','II','III','IV','V','VI','VII','VIII','IX','X','XI'];
+const SECTORS = [
+  { title:'Financial Consultations & Capital Solutions', img:'fin.jpg', icon:'bi-graph-up-arrow',
+    desc:'High-tier advice on corporate financial budgets, liquidity configurations, and capital lines — including asset viability analyses, feasibility evaluations, specialized capital trials, employee pension fund protection architectures, statutory commercial liquidations, and ring-fenced account management.',
+    ar_title:'الاستشارات المالية وحلول رأس المال',
+    ar_desc:'استشارات رفيعة المستوى بشأن الموازنات المالية للشركات، وتنظيم السيولة، وخطوط رأس المال — بما يشمل تحليل جدوى الأصول، ودراسات الجدوى، والتجارب الرأسمالية المتخصصة، وحماية صناديق معاشات الموظفين، والتصفيات التجارية القانونية، وإدارة الحسابات المسيّجة.' },
+  { title:'Project Management & Capital Wealth Formation', img:'trendnew.jpg', icon:'bi-bar-chart-line',
+    desc:'Close monitoring of shifting global macroeconomic matrices and investment trends to provide clarity for corporate asset allocation, converting abstract market insight into practical, scalable corporate wealth growth solutions.',
+    ar_title:'إدارة المشاريع وتكوين الثروات الرأسمالية',
+    ar_desc:'متابعة دقيقة للمتغيرات الاقتصادية الكلية العالمية واتجاهات الاستثمار لتوضيح رؤية توزيع أصول الشركات، وتحويل الرؤى السوقية المجردة إلى حلول عملية وقابلة للتوسع لنمو ثروة الشركات.' },
+  { title:'Cybersecurity Analysis & Vulnerability Auditing', img:'sec.jpg', icon:'bi-shield-lock',
+    desc:'Modern, robust security mapping for enterprise databases, operational controls, and web applications. Assessments systematically detect weaknesses, protecting intellectual property and user transactions against evolving threat landscapes.',
+    ar_title:'تحليل الأمن السيبراني وتدقيق الثغرات',
+    ar_desc:'رسم خرائط أمنية حديثة وقوية لقواعد بيانات الشركات، والضوابط التشغيلية، وتطبيقات الويب. تكتشف تقييماتنا الثغرات بشكل منهجي، لحماية الملكية الفكرية ومعاملات المستخدمين من التهديدات المتطورة.' },
+  { title:'Legal Consultation, International Arbitration & Litigation', img:'international_arbitration.jpg', icon:'bi-hammer',
+    desc:'Guidance and management of complex cross-border corporate contentions, litigation pipelines, and international arbitrations across global seats — protecting investment parameters and securing pre- and post-transaction assets.',
+    ar_title:'الاستشارات القانونية والتحكيم الدولي والتقاضي',
+    ar_desc:'توجيه وإدارة النزاعات التجارية العابرة للحدود، ومسارات التقاضي، والتحكيم الدولي في مقار عالمية متعددة — لحماية معايير الاستثمار وتقليل المسؤولية المؤسسية وتأمين الأصول قبل وبعد الصفقات.' },
+  { title:'Entity Incorporation, Trademarking & HR Outsourcing', img:'create.jpg', icon:'bi-building-add',
+    desc:'Streamlined corporate incorporations and business transformations, including international trademark registrations, Silver/Gold/Diamond government investment incentives, free-zone tax benefits, and tailored recruitment and training tracks.',
+    ar_title:'تأسيس الشركات والعلامات التجارية والاستعانة بمصادر خارجية للموارد البشرية',
+    ar_desc:'تبسيط تأسيس الشركات الجديدة ودعم التحولات التجارية، ويشمل ذلك تسجيل العلامات التجارية الدولية، والحصول على حوافز الاستثمار الحكومية (فضية وذهبية وماسية)، والاستفادة من مزايا المناطق الحرة الضريبية، بدعم من مسارات توظيف وتدريب مخصصة.' },
+  { title:'Infrastructure Development & Developer Permits', img:'construction.jpg', icon:'bi-cone-striped',
+    desc:'Developer licensing tracks and regulatory permissions for large-scale urban development programs — including industrial setup planning, prime contractor vetting, and international institutional project financing configurations.',
+    ar_title:'تطوير البنية التحتية وتصاريح المطورين',
+    ar_desc:'إدارة مسارات ترخيص المطورين والتصاريح التنظيمية لبرامج التطوير العمراني واسعة النطاق — بما يشمل تخطيط الإنشاءات الصناعية، وفحص المقاولين الرئيسيين، وتنظيم التمويل المؤسسي الدولي للمشاريع.' },
+  { title:'Holistic Government & Private Executive Insurance', img:'insurance.jpg', icon:'bi-umbrella',
+    desc:'Tailored corporate asset protection packages across official state frameworks, bespoke private corporate indemnity networks, large-scale property risk management bonds, and comprehensive health care systems for executive teams.',
+    ar_title:'التأمين التنفيذي الشامل الحكومي والخاص',
+    ar_desc:'إعداد وتنظيم باقات حماية أصول مخصصة عبر الأطر الحكومية الرسمية، وشبكات التعويض المؤسسي الخاصة، وسندات إدارة مخاطر الممتلكات واسعة النطاق، وأنظمة رعاية صحية شاملة لفرق الإدارة التنفيذية.' },
+  { title:'Strategic Corporate Accounting & Fiscal Auditing', img:'audit.jpg', icon:'bi-clipboard-data',
+    desc:'Clear compliance support for localized and cross-border tax guidelines, managing evolving tax updates so executive leadership can focus on core business operations during rigorous financial audits.',
+    ar_title:'المحاسبة الاستراتيجية للشركات والتدقيق المالي',
+    ar_desc:'دعم واضح للامتثال للوائح الضريبية المحلية والعابرة للحدود، وإدارة التحديثات الضريبية المتغيرة لتمكين الإدارة التنفيذية من التركيز على العمليات الأساسية أثناء عمليات التدقيق المالي الدقيقة.' },
+  { title:'Hospitality Vetting & Nile Vessel Licensing', img:'nile.jpg', icon:'bi-water',
+    desc:'Coordination of official Ministry of Tourism and Antiquities compliance for premium culinary venues, tourist resorts, and floating Nile cruise ships — accelerating paperwork across high-tier licensing categories.',
+    ar_title:'فحص المنشآت السياحية وترخيص السفن النيلية',
+    ar_desc:'تنسيق خطوات الامتثال الرسمية لوزارة السياحة والآثار للمنشآت الفاخرة للطهي، والمنتجعات السياحية، وسفن الرحلات النيلية العائمة — مع تسريع إجراءات التراخيص عالية المستوى.' },
+  { title:'High-Profile Historical Event Architecture', img:'mus.jpg', icon:'bi-bank2',
+    desc:'Execution of international corporate events at landmarks such as the Grand Egyptian Museum, Giza Pyramids, and Le Lac du Caire — covering site rentals, catering, climate control, diplomat security, and crowd-flow architecture.',
+    ar_title:'تنظيم الفعاليات التاريخية رفيعة المستوى',
+    ar_desc:'تنظيم وتنفيذ فعاليات مؤسسية دولية في معالم تاريخية مثل المتحف المصري الكبير وأهرامات الجيزة وبحيرة القاهرة — وتشمل الخدمات تأجير المواقع، والضيافة الفاخرة، والتحكم في المناخ، وبروتوكولات أمن الدبلوماسيين، وتنظيم تدفق الحشود.' },
+  { title:'Outsource Services', img:'out.jpg', icon:'bi-headset',
+    desc:'Call-center-related technical services, recruitment, and staff training for banking, multinational companies, petroleum companies, and hotels/restaurants.',
+    ar_title:'خدمات الاستعانة بمصادر خارجية',
+    ar_desc:'خدمات فنية متعلقة بمراكز الاتصال، والتوظيف، وتدريب الموظفين لقطاعات البنوك والشركات متعددة الجنسيات وشركات البترول والفنادق والمطاعم.' },
+];
+
+/* ============================================================
+   VIEW SWITCHING
+   ============================================================ */
+function switchPortalView(viewId){
+  document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active-view'));
+  document.querySelectorAll('.nav-link-btn').forEach(b => b.classList.remove('active'));
+
+  const target = document.getElementById('view-' + viewId);
+  if(target){
+    target.classList.add('active-view');
+    window.scrollTo({ top:0, behavior:'smooth' });
+    // stagger-reveal content within this view
+    const items = target.querySelectorAll('.reveal');
+    items.forEach((el,i) => {
+      el.classList.remove('in-view');
+      setTimeout(() => el.classList.add('in-view'), 60 + i*90);
+    });
+  }
+  const btn = document.getElementById('btn-' + viewId);
+  if(btn) btn.classList.add('active');
+
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+/* ============================================================
+   NAV MOBILE TOGGLE + SCROLL SHADOW
+   ============================================================ */
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('siteHeader').classList.toggle('is-scrolled', window.scrollY > 8);
+  document.getElementById('toTop').classList.toggle('show', window.scrollY > 500);
+}, { passive:true });
+document.getElementById('toTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ============================================================
+   HERO DOSSIER CAROUSEL
+   ============================================================ */
+(function heroCarousel(){
+  const slides = document.querySelectorAll('#heroFrame .dossier-slide');
+  const dotsWrap = document.getElementById('heroDots');
+  let idx = 0, timer;
+
+  slides.forEach((s,i) => {
+    const dot = document.createElement('button');
+    if(i===0) dot.classList.add('active');
+    dot.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function go(i){
+    slides[idx].classList.remove('active');
+    dotsWrap.children[idx].classList.remove('active');
+    idx = i;
+    slides[idx].classList.add('active');
+    dotsWrap.children[idx].classList.add('active');
+  }
+  function next(){ go((idx+1) % slides.length); }
+  function start(){ timer = setInterval(next, 4200); }
+  function stop(){ clearInterval(timer); }
+
+  start();
+  const frame = document.getElementById('heroFrame');
+  frame.addEventListener('mouseenter', stop);
+  frame.addEventListener('mouseleave', start);
+})();
+
+/* ============================================================
+   SERVICES INDEX + DETAIL
+   ============================================================ */
+const servicesModule = (function(){
+  const indexNav = document.getElementById('servicesIndex');
+  const detail = document.getElementById('servicesDetail');
+  const progress = document.getElementById('svcProgress');
+  let current = 0, timer;
+
+  function t(s){ return window.__lang === 'ar' ? { title:s.ar_title, desc:s.ar_desc } : { title:s.title, desc:s.desc }; }
+  function sectorWord(){ return window.__lang === 'ar' ? 'القطاع' : 'SECTOR'; }
+
+  function buildIndex(){
+    indexNav.innerHTML = '';
+    SECTORS.forEach((s,i) => {
+      const b = document.createElement('button');
+      const tr = t(s);
+      b.className = 'svc-index-btn' + (i===current ? ' active' : '');
+      b.innerHTML = `<span class="svc-roman">${ROMANS[i]}</span><span class="svc-index-title">${tr.title}</span>`;
+      b.addEventListener('click', () => select(i, true));
+      indexNav.appendChild(b);
+    });
+  }
+
+  function render(i){
+    const s = SECTORS[i];
+    const tr = t(s);
+    detail.innerHTML = `
+      <div class="svc-panel active">
+        <div>
+          <span class="svc-num-badge">${sectorWord()} ${ROMANS[i]} / XI</span>
+          <h3>${tr.title}</h3>
+          <p>${tr.desc}</p>
+        </div>
+        <div class="svc-img">
+          <img src="${s.img}" alt="${tr.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="svc-fallback"><i class="bi ${s.icon}"></i><span>${tr.title}</span></div>
+        </div>
+      </div>`;
+    progress.textContent = `${ROMANS[i]} / XI`;
+  }
+
+  function select(i, manual){
+    current = i;
+    render(current);
+    [...indexNav.children].forEach((b,j) => b.classList.toggle('active', j===i));
+    if(indexNav.children[i]) indexNav.children[i].scrollIntoView({ block:'nearest', behavior:'smooth' });
+    if(manual) restart();
+  }
+
+  function nextSlide(){ select((current+1) % SECTORS.length); }
+  function restart(){ clearInterval(timer); timer = setInterval(nextSlide, 6000); }
+
+  document.getElementById('svcNext').addEventListener('click', () => select((current+1)%SECTORS.length, true));
+  document.getElementById('svcPrev').addEventListener('click', () => select((current-1+SECTORS.length)%SECTORS.length, true));
+
+  const shell = document.getElementById('servicesShell');
+  shell.addEventListener('mouseenter', () => clearInterval(timer));
+  shell.addEventListener('mouseleave', restart);
+
+  buildIndex();
+  render(0);
+  restart();
+
+  window.__goToSector = (i) => select(i, true);
+
+  return { refresh(){ buildIndex(); render(current); } };
+})();
+
+/* Home "at a glance" chips linking into the sector index */
+const chipRowModule = (function(){
+  const wrap = document.getElementById('chipRow');
+  function build(){
+    wrap.innerHTML = '';
+    SECTORS.forEach((s,i) => {
+      const c = document.createElement('button');
+      c.className = 'chip';
+      c.textContent = window.__lang === 'ar' ? s.ar_title : s.title;
+      c.addEventListener('click', () => {
+        switchPortalView('services');
+        setTimeout(() => window.__goToSector && window.__goToSector(i), 150);
+      });
+      wrap.appendChild(c);
+    });
+  }
+  build();
+  return { refresh: build };
+})();
+
+/* ============================================================
+   SCROLL REVEAL (for the long-scrolling Home view)
+   ============================================================ */
+(function revealObserver(){
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); obs.unobserve(e.target); } });
+  }, { threshold:.15 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ============================================================
+   ROLLING STAT COUNTERS
+   ============================================================ */
+(function statCounters(){
+  const stats = document.querySelectorAll('.stat-num');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const to = parseInt(el.dataset.countTo, 10);
+      const suffix = el.dataset.suffix || '';
+      if(reduce){ el.textContent = to + suffix; obs.unobserve(el); return; }
+      const dur = 1400, start = performance.now();
+      function tick(now){
+        const p = Math.min(1, (now-start)/dur);
+        const eased = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(to * eased) + suffix;
+        if(p < 1) requestAnimationFrame(tick); else el.textContent = to + suffix;
+      }
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
+    });
+  }, { threshold:.4 });
+  stats.forEach(s => obs.observe(s));
+})();
+
+/* ============================================================
+   CAREERS FORM
+   ============================================================ */
+document.getElementById('applicantFile').addEventListener('change', function(){
+  const nameEl = document.getElementById('fileDropName');
+  nameEl.textContent = this.files.length ? this.files[0].name : (I18N[window.__lang]['careers.file.default']);
+});
+
+document.getElementById('applicationForm').addEventListener('submit', function(event){
+  event.preventDefault();
+  const name = document.getElementById('applicantName').value;
+  const track = document.getElementById('applicantTrack').value;
+  const feedbackBox = document.getElementById('formFeedback');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const btnSpinner = document.getElementById('btnSpinner');
+  const L = window.__lang;
+
+  submitBtn.disabled = true;
+  btnText.textContent = I18N[L]['careers.processing'];
+  btnSpinner.style.display = 'inline-block';
+
+  setTimeout(() => {
+    submitBtn.disabled = false;
+    btnText.textContent = I18N[L]['careers.submit'];
+    btnSpinner.style.display = 'none';
+
+    feedbackBox.classList.add('show');
+    feedbackBox.innerHTML = L === 'ar'
+      ? `<strong>تم الإرسال بنجاح.</strong> شكرًا لك، ${name}. تم تسليم ملفك الخاص بمسار <em>${track}</em> إلى إدارة الموارد البشرية لدينا.`
+      : `<strong>Submission successful.</strong> Thank you, ${name}. Your profile for the <em>${track}</em> track has been delivered to our HR Directorate.`;
+
+    document.getElementById('applicationForm').reset();
+    document.getElementById('fileDropName').textContent = I18N[window.__lang]['careers.file.default'];
+  }, 1400);
+});
+
+/* ============================================================
+   POP BADGES — Easy / Simple / Cheap / Fast
+   ============================================================ */
+(function popBadges(){
+  const wrap = document.getElementById('popRow');
+  const badges = wrap.querySelectorAll('.pop-badge');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(!e.isIntersecting) return;
+      badges.forEach((b,i) => setTimeout(() => b.classList.add('pop-in'), i*140));
+      obs.unobserve(wrap);
+    });
+  }, { threshold:.4 });
+  obs.observe(wrap);
+})();
+
+/* ============================================================
+   I18N — EN / AR
+   ============================================================ */
+const I18N = {
+  en: {
+    'nav.home':'Home', 'nav.about':'About & History', 'nav.services':'Our Services',
+    'nav.careers':'Careers', 'nav.contact':'Contact & Visit',
+    'hero.eyebrow':'Global Business Advisory · Est. 1964',
+    'hero.h1':'Your strategic <em>global partner</em>, since Zürich, 1964.',
+    'hero.lead':'InterConsulta Egypt delivers highly specialized corporate solutions to scale, protect and legally align your enterprise vision — from capital structuring to cross-border litigation.',
+    'hero.cred1':'Zürich, 1964', 'hero.cred2':'Cairo, 1983', 'hero.cred3':'11 practice areas',
+    'hero.btn1':'Explore Solutions', 'hero.btn2':'Request Callback',
+    'pop.easy':'Easy', 'pop.simple':'Simple', 'pop.cheap':'Cheap', 'pop.fast':'Fast',
+    'stats.label1':'Years of continuous operation', 'stats.label2':'Established in Cairo',
+    'stats.label3':'Active practice areas', 'stats.label4':'Nations of origin — CH & EG',
+    'mission.quote':'We place our corporate clients first — whether structuring complex venture capital funding, executing cross-border portfolio transformations, or orchestrating high-profile diplomatic summits at the Giza Pyramids, our global advisory converts ambition into compliant reality.',
+    'about.eyebrow':'The Firm', 'about.title':'Corporate Intelligence',
+    'about.card.title':'About Us',
+    'about.card.p1':'Established originally in Switzerland in 1964, InterConsulta Egypt remains a premier institutional standard-bearer for operational execution and corporate growth strategy. Establishing operations in Egypt in 1983, the enterprise became directly involved in core national industrial infrastructure pathways.',
+    'about.card.p2':'Following a corporate relaunch in 2017, the firm channels high-level portfolio wealth management, asset verification metrics, and specialized structural consulting for multinational entities.',
+    'about.callout.title':'Institutional Standards',
+    'about.callout.p':'Utilizing precise regional index assessments, risk analysis architecture, and an elite team of senior legal and financial specialists, we supply custom target frameworks to address the modern dynamics of the Egyptian macroeconomy.',
+    'history.eyebrow':'The Record', 'history.title':'Our History',
+    'history.sub':'Decades of unbroken cross-border trust and generational client retainment.',
+    'tl1.date':'1964 — Zürich', 'tl1.title':'Founding of the firm',
+    'tl1.desc':'InterConsulta is established in Switzerland, laying the institutional foundation that still governs our advisory discipline today.',
+    'tl2.date':'1983 — Cairo', 'tl2.title':'Egyptian operations begin',
+    'tl2.desc':'The firm establishes a permanent presence in Egypt, becoming directly involved in core national industrial infrastructure pathways.',
+    'tl3.date':'1984 – 1999 — Nationwide expansion', 'tl3.title':'Branch network growth',
+    'tl3.desc':'Strong operational branches are established across Egypt, deepening ties with government ministries and corporate investment zones.',
+    'tl4.date':'2017 — Relaunch', 'tl4.title':'Optimized baseline framework',
+    'tl4.desc':'A corporate relaunch sharpens our focus on portfolio wealth management, asset verification, and structural consulting for multinational entities.',
+    'about.closing':'In a business ecosystem shaped by rapid technological shifts and unpredictable regulatory transitions, InterConsulta stands as a steady, reliable anchor. The definitive verification of our success lies in our client longevity — many of our premier institutional partners have retained our consultation tracks through multi-generational successions.',
+    'services.eyebrow':'The Index', 'services.title':'Operational Sectors',
+    'services.sub':'Eleven practice areas, indexed below. Select any entry, or let the record advance on its own.',
+    'careers.eyebrow':'Human Capital', 'careers.title':'Join the Firm',
+    'careers.quote':'Shape the future of global enterprise operations from Cairo.',
+    'careers.p':'At InterConsulta Egypt, we bring together senior legal counsels, technical auditors, and strategic financial analysts to form elite advisory squads. We offer cross-border dynamic environments, clear pathways to partnership, and competitive institutional compensation setups.',
+    'careers.form.title':'Submit Your Credentials',
+    'careers.form.sub':'Join our elite consultancy tier. Upload your professional background profiling sheet below.',
+    'careers.field.name':'Full Name', 'careers.field.email':'Email Address', 'careers.field.track':'Target Practice Area',
+    'careers.field.cv':'Attach Curriculum Vitae (PDF format)',
+    'careers.track1':'Senior Account Officer', 'careers.track2':'Business Development',
+    'careers.track3':'Relationship Manager', 'careers.track4':'Team Leader for Account Officers',
+    'careers.file.default':'Choose a PDF file', 'careers.file.hint':'Click to browse — max 10MB',
+    'careers.submit':'Process Application', 'careers.processing':'Processing Application…',
+    'contact.eyebrow':'Reach Us', 'contact.title':'Global Channels',
+    'contact.card1.title':'Operations Directorate',
+    'contact.card2.title':'Human Resources', 'contact.card2.role':'Careers and onboarding',
+    'contact.card3.title':'Sales & Retainers', 'contact.card3.role':'Client setups and retainers',
+    'contact.card4.title':'General Inquiries', 'contact.card4.role':'Administrative support',
+    'contact.hq.title':'Our Headquarters',
+    'contact.hq.p':"InterConsulta Egypt's central administrative and legal advisory suites are located strategically within Cairo's primary industrial and legislative hub, allowing real-time synchronization with government ministries and corporate investment zones.",
+    'contact.hq.addr':'129 Othman Ibn Affan St., In Front Of The Old Military Academy, El Nozha, Cairo, Egypt.',
+    'contact.map.label':'Our Google Location', 'contact.map.cta':'View on Google Maps →',
+    'footer.linkedin':'Connect with us on LinkedIn', 'footer.top':'Top',
+    'footer.sectors':'Sectors', 'footer.careers':'Careers Portal',
+  },
+  ar: {
+    'nav.home':'الرئيسية', 'nav.about':'من نحن وتاريخنا', 'nav.services':'خدماتنا',
+    'nav.careers':'الوظائف', 'nav.contact':'تواصل معنا',
+    'hero.eyebrow':'استشارات أعمال عالمية · تأسست 1964',
+    'hero.h1':'شريككم الاستراتيجي <em>العالمي</em>، منذ زيورخ عام 1964.',
+    'hero.lead':'تقدم إنتركونسولتا مصر حلولاً مؤسسية عالية التخصص لتنمية مؤسستكم وحمايتها ومواءمتها قانونياً — من هيكلة رأس المال إلى التقاضي عبر الحدود.',
+    'hero.cred1':'زيورخ، 1964', 'hero.cred2':'القاهرة، 1983', 'hero.cred3':'11 قطاعاً عملياً',
+    'hero.btn1':'استكشف الحلول', 'hero.btn2':'اطلب اتصالاً',
+    'pop.easy':'سهل', 'pop.simple':'بسيط', 'pop.cheap':'اقتصادي', 'pop.fast':'سريع',
+    'stats.label1':'عاماً من العمل المتواصل', 'stats.label2':'تأسست في القاهرة',
+    'stats.label3':'قطاعاً عملياً نشطاً', 'stats.label4':'دولتا المنشأ — سويسرا ومصر',
+    'mission.quote':'نضع عملاءنا من الشركات في المقام الأول — سواء في هيكلة تمويلات رأس المال الجريء المعقدة، أو تنفيذ التحولات الاستثمارية العابرة للحدود، أو تنظيم القمم الدبلوماسية رفيعة المستوى عند أهرامات الجيزة، تُحوّل استشاراتنا العالمية الطموح إلى واقع متوافق تماماً مع القانون.',
+    'about.eyebrow':'الشركة', 'about.title':'الاستخبارات المؤسسية',
+    'about.card.title':'من نحن',
+    'about.card.p1':'تأسست إنتركونسولتا في الأصل بسويسرا عام 1964، وما زالت رائدة مؤسسية في التنفيذ التشغيلي واستراتيجية النمو للشركات. ومنذ بدء عملياتها في مصر عام 1983، ارتبطت المؤسسة ارتباطاً مباشراً بمسارات البنية التحتية الصناعية الوطنية الأساسية.',
+    'about.card.p2':'وعقب إعادة الإطلاق المؤسسي في عام 2017، تركز الشركة على إدارة الثروات على مستوى المحافظ الاستثمارية، ومقاييس التحقق من الأصول، والاستشارات الهيكلية المتخصصة للكيانات متعددة الجنسيات.',
+    'about.callout.title':'المعايير المؤسسية',
+    'about.callout.p':'باستخدام تقييمات إقليمية دقيقة، وهيكلية تحليل مخاطر متقدمة، وفريق نخبوي من كبار المتخصصين القانونيين والماليين، نوفر أطراً مخصصة لمواجهة ديناميكيات الاقتصاد المصري الحديث.',
+    'history.eyebrow':'السجل', 'history.title':'تاريخنا',
+    'history.sub':'عقود من الثقة المستمرة عبر الحدود والاحتفاظ بالعملاء عبر الأجيال.',
+    'tl1.date':'1964 — زيورخ', 'tl1.title':'تأسيس الشركة',
+    'tl1.desc':'تأسست إنتركونسولتا في سويسرا، لتضع الأساس المؤسسي الذي ما زال يحكم انضباطنا الاستشاري حتى اليوم.',
+    'tl2.date':'1983 — القاهرة', 'tl2.title':'بدء العمليات المصرية',
+    'tl2.desc':'أسست الشركة حضوراً دائماً في مصر، وارتبطت مباشرة بمسارات البنية التحتية الصناعية الوطنية الأساسية.',
+    'tl3.date':'1984 – 1999 — التوسع على مستوى الجمهورية', 'tl3.title':'نمو شبكة الفروع',
+    'tl3.desc':'تم تأسيس فروع تشغيلية قوية في جميع أنحاء مصر، مما عزز الروابط مع الوزارات الحكومية والمناطق الاستثمارية المؤسسية.',
+    'tl4.date':'2017 — إعادة الإطلاق', 'tl4.title':'إطار عمل أساسي محسّن',
+    'tl4.desc':'صقلت إعادة الإطلاق المؤسسي تركيزنا على إدارة الثروات الاستثمارية، والتحقق من الأصول، والاستشارات الهيكلية للكيانات متعددة الجنسيات.',
+    'about.closing':'في منظومة أعمال تتشكل بفعل التحولات التقنية السريعة والتحولات التنظيمية غير المتوقعة، تظل إنتركونسولتا ركيزة ثابتة يُعتمد عليها. والدليل القاطع على نجاحنا يكمن في استمرارية عملائنا — إذ حافظ كثير من شركائنا المؤسسيين رفيعي المستوى على مسارات استشاراتنا عبر أجيال متعاقبة.',
+    'services.eyebrow':'الفهرس', 'services.title':'القطاعات التشغيلية',
+    'services.sub':'أحد عشر قطاعاً عملياً، مفهرسة أدناه. اختر أي عنصر، أو دع السجل يتقدم من تلقاء نفسه.',
+    'careers.eyebrow':'رأس المال البشري', 'careers.title':'انضم إلى الشركة',
+    'careers.quote':'شارك في تشكيل مستقبل عمليات المؤسسات العالمية انطلاقاً من القاهرة.',
+    'careers.p':'في إنتركونسولتا مصر، نجمع بين كبار المستشارين القانونيين والمدققين الفنيين والمحللين الماليين الاستراتيجيين لتشكيل فرق استشارية نخبوية. نقدم بيئات ديناميكية عابرة للحدود، ومسارات واضحة نحو الشراكة، وحزم تعويضات مؤسسية تنافسية.',
+    'careers.form.title':'أرسل بياناتك',
+    'careers.form.sub':'انضم إلى فئة الاستشارات النخبوية لدينا. ارفع نبذتك المهنية أدناه.',
+    'careers.field.name':'الاسم الكامل', 'careers.field.email':'البريد الإلكتروني', 'careers.field.track':'مجال العمل المستهدف',
+    'careers.field.cv':'إرفاق السيرة الذاتية (بصيغة PDF)',
+    'careers.track1':'مسؤول حسابات أول', 'careers.track2':'تطوير الأعمال',
+    'careers.track3':'مدير علاقات', 'careers.track4':'قائد فريق مسؤولي الحسابات',
+    'careers.file.default':'اختر ملف PDF', 'careers.file.hint':'انقر للتصفح — بحد أقصى 10 ميجابايت',
+    'careers.submit':'إرسال الطلب', 'careers.processing':'جارٍ معالجة الطلب…',
+    'contact.eyebrow':'تواصل معنا', 'contact.title':'قنوات التواصل العالمية',
+    'contact.card1.title':'الإدارة التشغيلية',
+    'contact.card2.title':'الموارد البشرية', 'contact.card2.role':'الوظائف والتهيئة',
+    'contact.card3.title':'المبيعات والعقود', 'contact.card3.role':'إعداد العملاء والعقود',
+    'contact.card4.title':'استفسارات عامة', 'contact.card4.role':'الدعم الإداري',
+    'contact.hq.title':'مقرنا الرئيسي',
+    'contact.hq.p':'تقع أجنحة إنتركونسولتا مصر الإدارية والاستشارية القانونية المركزية استراتيجياً في قلب القاهرة الصناعي والتشريعي، مما يتيح التنسيق الفوري مع الوزارات الحكومية والمناطق الاستثمارية المؤسسية.',
+    'contact.hq.addr':'129 شارع عثمان بن عفان، أمام الكلية الحربية القديمة، النزهة، القاهرة، مصر.',
+    'contact.map.label':'موقعنا على خرائط جوجل', 'contact.map.cta':'عرض على خرائط جوجل ←',
+    'footer.linkedin':'تواصل معنا عبر لينكدإن', 'footer.top':'أعلى الصفحة',
+    'footer.sectors':'القطاعات', 'footer.careers':'بوابة الوظائف',
+  }
+};
+
+function applyI18n(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(I18N[lang][key] !== undefined) el.textContent = I18N[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    if(I18N[lang][key] !== undefined) el.innerHTML = I18N[lang][key];
+  });
+}
+
+function setLanguage(lang){
+  window.__lang = lang;
+  document.documentElement.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
+  document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  applyI18n(lang);
+  document.getElementById('langToggle').textContent = lang === 'ar' ? 'EN / عربي' : 'EN / عربي';
+  if(window.servicesModuleRef) window.servicesModuleRef.refresh();
+  if(window.chipRowModuleRef) window.chipRowModuleRef.refresh();
+}
+
+window.__lang = 'en';
+window.servicesModuleRef = servicesModule;
+window.chipRowModuleRef = chipRowModule;
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  setLanguage(window.__lang === 'en' ? 'ar' : 'en');
+});
+
+setLanguage('en');
+
+/* ============================================================
+   GOOGLE TRANSLATE
+   ============================================================ */
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
